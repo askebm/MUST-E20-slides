@@ -35,7 +35,7 @@
 \newtheorem{proposition}{Proposition}
 % colored hyperlinks
 \newcommand{\chref}[2]{%
-  \href{#1}{{\usebeamercolor[bg]{SDUsimple}#2}}%
+    \href{#1}{{\usebeamercolor[bg]{SDUsimple}#2}}%
 }
 
 \title{Multivariate data and multivariate normal distribution}
@@ -44,8 +44,8 @@
 \date{ }
 
 \author{
-	Made by: \\
-	\textbf{Lasse Gøransson, Marc Evald, Anne-Charlotte Poulsen \& Aske Møller}
+    Made by: \\
+    \textbf{Lasse Gøransson, Marc Evald, Anne-Charlotte Poulsen \& Aske Møller}
 }
 
 % - Give the names in the same order as they appear in the paper.
@@ -54,16 +54,16 @@
 
 \institute[
 %  {\includegraphics[scale=0.2]{SDU_segl}}\\ %insert a company, department or university logo
-  SDU Robotics\\
-  The Maersk Mc-Kinney Moller Institute\\
-  University of Southern Denmark
+SDU Robotics\\
+The Maersk Mc-Kinney Moller Institute\\
+University of Southern Denmark
 ] % optional - is placed in the bottom of the sidebar on every slide
 {% is placed on the bottom of the title page
-  SDU Robotics\\
-  The Maersk Mc-Kinney Moller Institute\\
-  University of Southern Denmark
+    SDU Robotics\\
+    The Maersk Mc-Kinney Moller Institute\\
+    University of Southern Denmark
 
-  %there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
+    %there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
 }
 
 % specify a logo on the titlepage (you can specify additional logos an include them in
@@ -71,118 +71,137 @@
 \pgfdeclareimage[height=0.5cm]{titlepagelogo}{SDUgraphics/SDU_logo_new} % placed on the title page
 %\pgfdeclareimage[height=1.5cm]{titlepagelogo2}{SDUgraphics/SDU_logo_new} % placed on the title page
 \titlegraphic{% is placed on the bottom of the title page
-  \pgfuseimage{titlepagelogo}
-%  \hspace{1cm}\pgfuseimage{titlepagelogo2}
+    \pgfuseimage{titlepagelogo}
+    %  \hspace{1cm}\pgfuseimage{titlepagelogo2}
 }
 
 \begin{document}
 % the titlepage
 {\SDUwavesbg%
-\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page
-  \titlepage
+    \begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page
+        \titlepage
 \end{frame}}
 %%%%%%%%%%%%%%%%
 
 % TOC
-\begin{frame}{Agenda}{\vphantom{(y}}
-\tableofcontents
-\end{frame}
 %%%%%%%%%%%%%%%
 
-\section{Introduction}
-
 \begin{frame}[t]
-	\frametitle{title}
-	\framesubtitle{subtitle}
+    \frametitle{Univariate Statistics}
+    Univariate\\
 
-	Univariate\\
+    \begin{itemize}
+        \item Stochastic Variable
+        \item Mean
+        \item Variance
+    \end{itemize}
 
-	\begin{itemize}
-		\item Stochastic Variable
-		\item Mean
-		\item Variance
-	\end{itemize}
-	
 \end{frame}
 
 \begin{frame}[t]
-	\frametitle{title}
-	\framesubtitle{subtitle}
-
-	Multivariate
-
-	\begin{itemize}
-		\item Stochastic Variable
-			\[
-			\underset{p\times 1}{X}
-			.\] 
-		\item Mean
-			\[
-				E \left[ X \right] =
-				\underset{p\times 1}{\mu} =
-				\begin{bmatrix}
-					E \left[ X_1  \right] \\
-					\vdots\\
-					E \left[ X_p  \right] 
-				\end{bmatrix}
-			.\] 
-		\item Variance
-			\[
-				V \left[ X  \right]  =
-				\underset{p\times p}{\Sigma}
-				=
-				\begin{bmatrix}
-					\sigma_1^{2} & \sigma_{12} & \cdots & \sigma_{1p}\\
-					 & \sigma_2^{2} & &\\
-								 & & \ddots &\\
-								&&& \sigma_{p}^{2}
-				\end{bmatrix}
-			.\] 
-	\end{itemize}
+    \frametitle{Multivariate}
+    \framesubtitle{Theory}
+    \begin{itemize}
+        \item Stochastic Variable
+            \[
+                \underset{p\times 1}{X}
+            .\] 
+        \item Mean
+            \[
+                E \left[ X \right] =
+                \underset{p\times 1}{\mu} =
+                \begin{bmatrix}
+                    E \left[ X_1  \right] \\
+                    \vdots\\
+                    E \left[ X_p  \right] 
+                \end{bmatrix}
+            .\] 
+        \item Variance
+            \[
+                V \left[ X  \right]  =
+                \underset{p\times p}{\Sigma}
+                =
+                \begin{bmatrix}
+                    \sigma_1^{2} & \sigma_{12} & \cdots & \sigma_{1p}\\
+                                 & \sigma_2^{2} & &\\
+                                 & & \ddots &\\
+                                 &&& \sigma_{p}^{2}
+                \end{bmatrix}
+            .\] 
+    \end{itemize}
 \end{frame}
 
 
 \begin{frame}[t]
-	\frametitle{title}
-	\framesubtitle{subtitle}
-	Sampling
-	\begin{itemize}
-		\item Data
-			\[
-				x = 
-				\begin{bmatrix}
-					\begin{bmatrix}
-					x_{11} & \cdots & x_{1p}
-					\end{bmatrix}\\
-					\vdots\\
-					\begin{bmatrix}
-					x_{n1} & \cdots & x_{np}
-					\end{bmatrix}\\
-				\end{bmatrix}
-			.\] 
-		\item Estimated Mean
-			\[
-			\hat{\mu} = \bar{x} = 
-			\begin{bmatrix}
-				\frac{1}{n} \sum^{n}_{j=1} x_{j1}\\
-				\vdots\\
-				\frac{1}{n} \sum^{n}_{j=1} x_{jp}
-			\end{bmatrix}
-			.\] 
-		\item Estimated Variance
-			\[
-			\hat{\Sigma} = S = 
-			\frac{1}{n-1} \sum^{n}_{j=1} 
-			\left( x_j - \bar{x}  \right) 
-			\left( x_j - \bar{x}  \right) ^{T}
-			.\] 
-	\end{itemize}
+    \frametitle{Sampling}
+    \begin{itemize}
+        \item Data
+            \[
+                x = 
+                \begin{bmatrix}
+                    \begin{bmatrix}
+                        x_{11} & \cdots & x_{1p}
+                    \end{bmatrix}\\
+                    \vdots\\
+                    \begin{bmatrix}
+                        x_{n1} & \cdots & x_{np}
+                    \end{bmatrix}\\
+                \end{bmatrix}
+            .\] 
+        \item Estimated Mean
+            \[
+                \hat{\mu} = \bar{x} = 
+                \begin{bmatrix}
+                    \frac{1}{n} \sum^{n}_{j=1} x_{j1}\\
+                    \vdots\\
+                    \frac{1}{n} \sum^{n}_{j=1} x_{jp}
+                \end{bmatrix}
+            .\] 
+        \item Estimated Variance
+            \[
+                \hat{\Sigma} = S = 
+                \frac{1}{n-1} \sum^{n}_{j=1} 
+                \left( x_j - \bar{x}  \right) 
+                \left( x_j - \bar{x}  \right) ^{T}
+            .\] 
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]
+    \frametitle{MVN}
+
+    Multivariate Normal Distribution
+    \[
+        \underset{p\times1}{X} \sim N_p(\mu, \Sigma)
+    \] 
+    Contour Plot 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.3]{images/1.png}
+    \end{figure}
+
+    \begin{itemize}
+        \item Mahalanobis Distance $(x - \mu)^T \Sigma^{-1} (x - \mu)$\sim \chi^2_2
+    \end{itemize}
+
 \end{frame}
 
 \begin{frame}[t]
+    \frametitle{Model Check}
 
-
-
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}[H]
+                \includegraphics[scale=0.2]{images/scatterplotCorr.png}
+            \end{figure} 
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}[H]
+                \includegraphics[scale=0.2]{images/qq.png}
+            \end{figure}    
+        \end{column}
+    \end{columns}
 
 \end{frame}
 
