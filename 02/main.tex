@@ -38,13 +38,14 @@
   \href{#1}{{\usebeamercolor[bg]{SDUsimple}#2}}%
 }
 
-\title{Title}
-\subtitle{Subtitle}
+\title{One and two sample hotelling T$^2$-test}
+\subtitle{Multivariate Statistic}
 %\date{\today}
 \date{ }
 
 \author{
-  \textbf{Author}
+    Made by: \\
+    \textbf{Lasse Gøransson, Marc Evald, Anne-Charlotte Poulsen \& Aske Møller}
 }
 
 % - Give the names in the same order as they appear in the paper.
@@ -82,38 +83,88 @@
 \end{frame}}
 %%%%%%%%%%%%%%%%
 
-% TOC
-\begin{frame}{Agenda}{\vphantom{(y}}
-\tableofcontents
+
+\begin{frame}{Hypothesis Testing on $\mu$}{One-sample}
+    
+   Assumptions 
+
+   \begin{itemize}
+       \item Obs. IID
+       \item MVN distributed 
+   \end{itemize}
+   \\
+
+   Hypothesis
+
+    \begin{align*}
+        H_0&: \mu = \mu_0\\
+        H_1&: \mu \neq \mu_0
+    \end{align*}
+    
+\begin{align*}
+    T^2_0 = ( \bar{x} - \mu_0) \left(\frac{S^2}{n}\right)^{-1} ( \bar{x} -\mu_0 ) \sim \frac{p(n-1)}{n-p} F_{p,n-p}
+\end{align*}
+
 \end{frame}
-%%%%%%%%%%%%%%%
 
-\section{Introduction}
+\begin{frame}{Hypothesis Testing on $\mu$}{One-sample}
+   Hypothesis
+
+    \begin{align*}
+        H_0&: \mu = \mu_0\\
+        H_1&: \mu \neq \mu_0
+    \end{align*}
+    
+\begin{align*}
+    T^2_0 = ( \bar{x} - \mu_0) \left(\frac{S^2}{n}\right)^{-1} ( \bar{x} -\mu_0 ) \sim \frac{p(n-1)}{n-p} F_{p,n-p}
+\end{align*}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+               \begin{align*}
+               t^2_0 > \frac{p(n-1)}{n-p} F_{p,n-p,\alpha } \\
+               \text{Reject}
+               \end{align*}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+               \begin{align*}
+                   P( F_{p,n-p} > \frac{n-p}{p(n-1)} t_0^2 )
+               \end{align*}
+        \end{column}
+    \end{columns}
 
 
-\subsection{Course Overview}
-\begin{frame}{Introduction}{Curriculum for Reguleringsteknik (REG)\vphantom{(y}}
-\vspace{-0.7em}
-{\footnotesize Matematiske og grafiske metoder til syntese af {\color{red}lineære tidsinvariante systemer}:\footnote{{\tiny Based on https://fagbesk.sam.sdu.dk/?fag\_id=39673}}
-\begin{itemize}
-\item {\color{red}diskret og kontinuert tilstandsbeskrivelse}
-\item analyse i tid og frekvens
-\item stabilitet, reguleringshastighed, følsomhed og fejl
-\item digitale PI, PID, LEAD og LAG regulatorer (serieregulatorer)
-\item tilstandsregulering, pole-placement og tilstands-estimering (observer)
-\item optimal regulering (least squares) og optimal tilstands-estimation (Kalman-filter)
-\end{itemize}
-\vspace{0.5em}
-\textbf{Færdigheder}:\\
-Efter gennemførelse af kurset kan den succesfulde studerende:
-\begin{itemize}
-\item kunne analysere, dimensionere og implementere såvel kontinuert som tidsdiskret regulering af lineære tidsinvariante og stokastiske systemer
-\end{itemize}
-\vspace{0.5em}
-\textbf{Kompetencer}:\\
-Efter gennemførelse af kurset kan den succesfulde studerende:
-\begin{itemize}
-\item anvende og implementere klassiske og moderne reguleringsteknikker for at kunne styre og regulere en robot hurtig og præcist
-\end{itemize}}
+    
 \end{frame}
+
+\begin{frame}{Hypothesis Testing on $\mu$}{One-sample}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.15]{images/f.png}
+    \end{figure} 
+\end{frame}
+
+\begin{frame}{Hypothesis Testing on $\mu$}{Two-sample}
+
+    Model:
+    \begin{itemize}
+        \item Pair wise observations.
+    \end{itemize}
+
+
+   Assumptions 
+   \begin{itemize}
+       \item Both must be MVN distributed.
+   \end{itemize}
+   \\
+
+
+   Hypothesis
+    \begin{align*}
+        H_0&: \mu = \mu_0\\
+        H_1&: \mu \neq \mu_0
+    \end{align*}
+    
+\end{frame}
+
 \end{document}
