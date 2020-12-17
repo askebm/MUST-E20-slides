@@ -38,13 +38,14 @@
   \href{#1}{{\usebeamercolor[bg]{SDUsimple}#2}}%
 }
 
-\title{Title}
-\subtitle{Subtitle}
+\title{Multivariate data and multivariate normal distribution}
+\subtitle{Multivariate Statistic}
 %\date{\today}
 \date{ }
 
 \author{
-  \textbf{Author}
+	Made by: \\
+	\textbf{Lasse Gøransson, Marc Evald, Anne-Charlotte Poulsen \& Aske Møller}
 }
 
 % - Give the names in the same order as they appear in the paper.
@@ -90,30 +91,100 @@
 
 \section{Introduction}
 
+\begin{frame}[t]
+	\frametitle{title}
+	\framesubtitle{subtitle}
 
-\subsection{Course Overview}
-\begin{frame}{Introduction}{Curriculum for Reguleringsteknik (REG)\vphantom{(y}}
-\vspace{-0.7em}
-{\footnotesize Matematiske og grafiske metoder til syntese af {\color{red}lineære tidsinvariante systemer}:\footnote{{\tiny Based on https://fagbesk.sam.sdu.dk/?fag\_id=39673}}
-\begin{itemize}
-\item {\color{red}diskret og kontinuert tilstandsbeskrivelse}
-\item analyse i tid og frekvens
-\item stabilitet, reguleringshastighed, følsomhed og fejl
-\item digitale PI, PID, LEAD og LAG regulatorer (serieregulatorer)
-\item tilstandsregulering, pole-placement og tilstands-estimering (observer)
-\item optimal regulering (least squares) og optimal tilstands-estimation (Kalman-filter)
-\end{itemize}
-\vspace{0.5em}
-\textbf{Færdigheder}:\\
-Efter gennemførelse af kurset kan den succesfulde studerende:
-\begin{itemize}
-\item kunne analysere, dimensionere og implementere såvel kontinuert som tidsdiskret regulering af lineære tidsinvariante og stokastiske systemer
-\end{itemize}
-\vspace{0.5em}
-\textbf{Kompetencer}:\\
-Efter gennemførelse af kurset kan den succesfulde studerende:
-\begin{itemize}
-\item anvende og implementere klassiske og moderne reguleringsteknikker for at kunne styre og regulere en robot hurtig og præcist
-\end{itemize}}
+	Univariate\\
+
+	\begin{itemize}
+		\item Stochastic Variable
+		\item Mean
+		\item Variance
+	\end{itemize}
+	
 \end{frame}
+
+\begin{frame}[t]
+	\frametitle{title}
+	\framesubtitle{subtitle}
+
+	Multivariate
+
+	\begin{itemize}
+		\item Stochastic Variable
+			\[
+			\underset{p\times 1}{X}
+			.\] 
+		\item Mean
+			\[
+				E \left[ X \right] =
+				\underset{p\times 1}{\mu} =
+				\begin{bmatrix}
+					E \left[ X_1  \right] \\
+					\vdots\\
+					E \left[ X_p  \right] 
+				\end{bmatrix}
+			.\] 
+		\item Variance
+			\[
+				V \left[ X  \right]  =
+				\underset{p\times p}{\Sigma}
+				=
+				\begin{bmatrix}
+					\sigma_1^{2} & \sigma_{12} & \cdots & \sigma_{1p}\\
+					 & \sigma_2^{2} & &\\
+								 & & \ddots &\\
+								&&& \sigma_{p}^{2}
+				\end{bmatrix}
+			.\] 
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]
+	\frametitle{title}
+	\framesubtitle{subtitle}
+	Sampling
+	\begin{itemize}
+		\item Data
+			\[
+				x = 
+				\begin{bmatrix}
+					\begin{bmatrix}
+					x_{11} & \cdots & x_{1p}
+					\end{bmatrix}\\
+					\vdots\\
+					\begin{bmatrix}
+					x_{n1} & \cdots & x_{np}
+					\end{bmatrix}\\
+				\end{bmatrix}
+			.\] 
+		\item Estimated Mean
+			\[
+			\hat{\mu} = \bar{x} = 
+			\begin{bmatrix}
+				\frac{1}{n} \sum^{n}_{j=1} x_{j1}\\
+				\vdots\\
+				\frac{1}{n} \sum^{n}_{j=1} x_{jp}
+			\end{bmatrix}
+			.\] 
+		\item Estimated Variance
+			\[
+			\hat{\Sigma} = S = 
+			\frac{1}{n-1} \sum^{n}_{j=1} 
+			\left( x_j - \bar{x}  \right) 
+			\left( x_j - \bar{x}  \right) ^{T}
+			.\] 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+
+
+
+
+\end{frame}
+
+
 \end{document}
