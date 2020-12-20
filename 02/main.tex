@@ -35,7 +35,7 @@
 \newtheorem{proposition}{Proposition}
 % colored hyperlinks
 \newcommand{\chref}[2]{%
-  \href{#1}{{\usebeamercolor[bg]{SDUsimple}#2}}%
+	\href{#1}{{\usebeamercolor[bg]{SDUsimple}#2}}%
 }
 
 \title{One and two sample hotelling T$^2$-test}
@@ -44,8 +44,8 @@
 \date{ }
 
 \author{
-    Made by: \\
-    \textbf{Lasse Gøransson, Marc Evald, Anne-Charlotte Poulsen \& Aske Møller}
+	Made by: \\
+	\textbf{Lasse Gøransson, Marc Evald, Anne-Charlotte Poulsen \& Aske Møller}
 }
 
 % - Give the names in the same order as they appear in the paper.
@@ -54,16 +54,16 @@
 
 \institute[
 %  {\includegraphics[scale=0.2]{SDU_segl}}\\ %insert a company, department or university logo
-  SDU Robotics\\
-  The Maersk Mc-Kinney Moller Institute\\
-  University of Southern Denmark
+SDU Robotics\\
+The Maersk Mc-Kinney Moller Institute\\
+University of Southern Denmark
 ] % optional - is placed in the bottom of the sidebar on every slide
 {% is placed on the bottom of the title page
-  SDU Robotics\\
-  The Maersk Mc-Kinney Moller Institute\\
-  University of Southern Denmark
+	SDU Robotics\\
+	The Maersk Mc-Kinney Moller Institute\\
+	University of Southern Denmark
 
-  %there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
+	%there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
 }
 
 % specify a logo on the titlepage (you can specify additional logos an include them in
@@ -71,100 +71,152 @@
 \pgfdeclareimage[height=0.5cm]{titlepagelogo}{SDUgraphics/SDU_logo_new} % placed on the title page
 %\pgfdeclareimage[height=1.5cm]{titlepagelogo2}{SDUgraphics/SDU_logo_new} % placed on the title page
 \titlegraphic{% is placed on the bottom of the title page
-  \pgfuseimage{titlepagelogo}
-%  \hspace{1cm}\pgfuseimage{titlepagelogo2}
+	\pgfuseimage{titlepagelogo}
+	%  \hspace{1cm}\pgfuseimage{titlepagelogo2}
 }
 
 \begin{document}
 % the titlepage
 {\SDUwavesbg%
-\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page
-  \titlepage
+	\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page
+		\titlepage
 \end{frame}}
 %%%%%%%%%%%%%%%%
 
 
 \begin{frame}{Hypothesis Testing on $\mu$}{One-sample}
-    
-   Assumptions 
 
-   \begin{itemize}
-       \item Obs. IID
-       \item MVN distributed 
-   \end{itemize}
-   \\
+	Assumptions 
 
-   Hypothesis
+	\begin{itemize}
+		\item Obs. IID
+		\item MVN distributed 
+	\end{itemize}
+	\\
 
-    \begin{align*}
-        H_0&: \mu = \mu_0\\
-        H_1&: \mu \neq \mu_0
-    \end{align*}
-    
-\begin{align*}
-    T^2_0 = ( \bar{x} - \mu_0) \left(\frac{S^2}{n}\right)^{-1} ( \bar{x} -\mu_0 ) \sim \frac{p(n-1)}{n-p} F_{p,n-p}
-\end{align*}
+	Hypothesis
+
+	\begin{align*}
+		H_0&: \mu = \mu_0\\
+		H_1&: \mu \neq \mu_0
+	\end{align*}
+
+	\begin{align*}
+		T^2_0 = ( \bar{x} - \mu_0) \left(\frac{S^2}{n}\right)^{-1} ( \bar{x} -\mu_0 ) \sim \frac{p(n-1)}{n-p} F_{p,n-p}
+	\end{align*}
 
 \end{frame}
 
 \begin{frame}{Hypothesis Testing on $\mu$}{One-sample}
-   Hypothesis
+	Hypothesis
 
-    \begin{align*}
-        H_0&: \mu = \mu_0\\
-        H_1&: \mu \neq \mu_0
-    \end{align*}
-    
-\begin{align*}
-    T^2_0 = ( \bar{x} - \mu_0) \left(\frac{S^2}{n}\right)^{-1} ( \bar{x} -\mu_0 ) \sim \frac{p(n-1)}{n-p} F_{p,n-p}
-\end{align*}
+	\begin{align*}
+		H_0&: \mu = \mu_0\\
+		H_1&: \mu \neq \mu_0
+	\end{align*}
 
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-               \begin{align*}
-               t^2_0 > \frac{p(n-1)}{n-p} F_{p,n-p,\alpha } \\
-               \text{Reject}
-               \end{align*}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-               \begin{align*}
-                   P( F_{p,n-p} > \frac{n-p}{p(n-1)} t_0^2 )
-               \end{align*}
-        \end{column}
-    \end{columns}
+	\begin{align*}
+		T^2_0 = ( \bar{X} - \mu_0) \left(\frac{S^2}{n}\right)^{-1} ( \bar{X} -\mu_0 ) \sim \frac{p(n-1)}{n-p} F_{p,n-p}
+	\end{align*}
+
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{align*}
+				t^2_0 > \frac{p(n-1)}{n-p} F_{p,n-p,\alpha } \\
+				\text{Reject}
+			\end{align*}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\begin{align*}
+				P( F_{p,n-p} > \frac{n-p}{p(n-1)} t_0^2 )
+			\end{align*}
+		\end{column}
+	\end{columns}
 
 
-    
+
 \end{frame}
 
 \begin{frame}{Hypothesis Testing on $\mu$}{One-sample}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.15]{images/f.png}
-    \end{figure} 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.15]{images/f.png}
+	\end{figure} 
 \end{frame}
 
 \begin{frame}{Hypothesis Testing on $\mu$}{Two-sample}
 
-    Model:
-    \begin{itemize}
-        \item Pair wise observations.
-    \end{itemize}
+	Assumptions.
+	
+	Model:
+	\begin{itemize}
+		\item Pair wise observations. $X$ and $Y$.
+	\end{itemize}
+	\\
+	Difference model:
+	\begin{itemize}
+		\item 
+			$ D =   \left( X - Y  \right)  \sim N \left( \mu_D, \Sigma_D  \right)  $
+	\end{itemize}
 
+	Hypothesis
+	\begin{align*}
+		H_0&: \mu_D = \delta\\
+		H_1&: \mu_D \neq \delta
+	\end{align*}
 
-   Assumptions 
-   \begin{itemize}
-       \item Both must be MVN distributed.
-   \end{itemize}
-   \\
+\end{frame}
 
+\begin{frame}[t]
+	\frametitle{Hypothesis Testing on $\mu$}
+	\framesubtitle{Equal $\Sigma$}
+	\begin{itemize}
+		\item Equal $\Sigma$\\
+			\[
+			S_p = 
+			\frac{  \left( n_1 -1  \right) S_1 +  \left( n_2 -1  \right) S_2}
+			{ \left( n_1 -1  \right) +  \left( n_2 -1  \right) } 
+			.\] 
+		\item Unequal $\Sigma$
+			\[
+			T^{2} =
+			\left( \bar{D} - \delta  \right) ^{T}
+			\left( \frac{S_1}{n_1} + \frac{S_2}{n_2}  \right) 
+			\left( \bar{D} - \delta  \right)
+			.\] 
+	\end{itemize}
+	
+\end{frame}
 
-   Hypothesis
-    \begin{align*}
-        H_0&: \mu = \mu_0\\
-        H_1&: \mu \neq \mu_0
-    \end{align*}
-    
+\begin{frame}[t]
+	\frametitle{Confidence regions}
+	\framesubtitle{subtitle}
+	Confidence region for $\delta$
+	\[
+		\forall \delta \in {\rm I\!R}^{P}:
+		\left( \bar{D} - \delta  \right) ^{T}
+		\left( \frac{S_d}{n}  \right) ^{-1}
+		\left( \bar{D} - \delta  \right)
+		<
+		\frac{p  \left( n-1 \right) }{n-p} 
+		F_{p,n-p,\alpha}
+	.\] 
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.35\linewidth]{../01/images/1.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[t]
+	\frametitle{Bartlett test}
+	\framesubtitle{subtitle}
+	Hypothesis:
+	\[
+		\begin{aligned}
+			H_0 &: \Sigma_X = \Sigma_Y\\
+			H_1 &: \Sigma_X \neq \Sigma_Y
+		\end{aligned}
+	.\] 
 \end{frame}
 
 \end{document}
