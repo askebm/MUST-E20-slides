@@ -85,7 +85,7 @@
 
 \begin{frame}[t]
 	\frametitle{MANOVA}
-	\framesubtitle{subtitle}
+	\framesubtitle{1 factor}
 
 	Assumptions:
 	\begin{itemize}
@@ -117,6 +117,77 @@
 	\frametitle{title}
 	\framesubtitle{subtitle}
 	
+	\[
+	\begin{aligned}
+		SSW &=
+		\sum^{g}_{\ell=1} 
+		\sum^{n_{\ell}}_{j=1} 
+		\left( X_{\ell,j}- \bar{X}_{\ell} \right) 
+		\left( X_{\ell,j}- \bar{X}_{\ell} \right) ^{T}\\
+		SSB &=
+		\sum^{g}_{\ell=1} 
+		\sum^{n_\ell}_{j=1} 
+		\left( X_{\ell}- \bar{X} \right) 
+		\left( X_{\ell}- \bar{X} \right) ^{T}\\
+		SST &=
+		\sum^{g}_{\ell=1} 
+		\sum^{n_{\ell}}_{j=1} 
+		\left( X_{\ell,j}- \bar{X} \right) 
+		\left( X_{\ell,j}- \bar{X} \right) ^{T}
+	\end{aligned}
+	\] 
+	\vspace{1cm}
+
+	\[
+	\Lambda ^{*} = \frac{|SSW|}{|SSB + SSW |} 
+	.\] 
+
+\end{frame}
+
+
+\begin{frame}[t]
+	\frametitle{MANOVA2}
+	\framesubtitle{subtitle}
+
+	Assumptions:
+	\begin{itemize}
+		\item 
+			\[
+				X_{\ell k,j} \sim N_{p}  \left( \mu_{\ell k}, \Sigma_{\ell k}  \right) 
+			.\] 
+		\item 
+			\[
+				\forall \Sigma_{\ell k} = \Sigma
+			.\] 
+		\item 
+			\[
+			\mu_{\ell k} = \mu + \tau_{\ell} + \beta_{k} + \gamma_{\ell k}
+			.\] 
+	\end{itemize}
+
+	Hypothesis\\
+	\begin{centering}
+		
+	\begin{tabular}{ccc}
+		$
+		\begin{aligned}
+			H_{0,\gamma} &: \forall \gamma_{\ell k} = 0\\
+			H_{1,\gamma} &: \exists \gamma_{\ell k} \neq 0
+		\end{aligned}
+		$ & $
+		\begin{aligned}
+			H_{0,\tau} &: \forall \tau{\ell} = 0\\
+			H_{1,\tau} &: \exists \tau{\ell} \neq 0
+		\end{aligned}
+			$	& $
+		\begin{aligned}
+			H_{0,\beta} &: \forall \beta_{k} = 0\\
+			H_{1,\beta} &: \exists \beta_{k} \neq 0
+		\end{aligned}
+				$
+	\end{centering}
+
+	\end{tabular}
 \end{frame}
 
 
