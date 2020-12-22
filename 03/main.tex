@@ -84,6 +84,13 @@
 %%%%%%%%%%%%%%%%
 
 \begin{frame}[t]
+    \frametitle{Model}
+    \begin{figure}[H]
+    \includegraphics[scale=0.5]{images/modelManoca.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[t]
 	\frametitle{MANOVA}
 	\framesubtitle{1 factor}
 
@@ -114,11 +121,14 @@
 \end{frame}
 
 \begin{frame}[t]
-	\frametitle{title}
-	\framesubtitle{subtitle}
-	
+	\frametitle{Decomposition of variance}
 	\[
 	\begin{aligned}
+        SST &=
+		\sum^{g}_{\ell=1} 
+		\sum^{n_{\ell}}_{j=1} 
+		\left( X_{\ell,j}- \bar{X} \right) 
+		\left( X_{\ell,j}- \bar{X} \right) ^{T}\\
 		SSW &=
 		\sum^{g}_{\ell=1} 
 		\sum^{n_{\ell}}_{j=1} 
@@ -129,18 +139,71 @@
 		\sum^{n_\ell}_{j=1} 
 		\left( X_{\ell}- \bar{X} \right) 
 		\left( X_{\ell}- \bar{X} \right) ^{T}\\
-		SST &=
-		\sum^{g}_{\ell=1} 
-		\sum^{n_{\ell}}_{j=1} 
-		\left( X_{\ell,j}- \bar{X} \right) 
-		\left( X_{\ell,j}- \bar{X} \right) ^{T}
 	\end{aligned}
 	\] 
 	\vspace{1cm}
-
+    \pause
 	\[
 	\Lambda ^{*} = \frac{|SSW|}{|SSB + SSW |} 
 	.\] 
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Illustration}
+    \begin{figure}[H]
+    \includegraphics[scale=0.28]{clusters.png}
+    \end{figure} 
+\end{frame}
+\begin{frame}[t]
+    \frametitle{Exact Distributions of Wilks Lambda.}
+    
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.3]{images/1.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Approximate distribution of Wilks Lambda.}
+    \[
+        -\left(n-1-\frac{p+g}{2}\right)ln\left( \Lambda^*\right) \sim \chi^2_{p(g-1)}
+    \]  
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Pairwise CI's}
+    \[
+        \left[(\bar{X}_{ai} - \bar{X}_{bi}) \pm t_{n-g}, \frac{\alpha}{ \frac{pg(g-1)}{2}} \cdot \sqrt{S_{wii} \cdot \frac{1}{n_a} + \frac{1}{n_b} } \right] , i = 1,...,p \land a,b = 1,...,g
+    \] 
+\begin{figure}[H]
+    \includegraphics[scale=0.2]{clusters.png}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}[t]
+	\frametitle{Model Check}
+    Hypothesis:
+	\[
+		\begin{aligned}
+			H_0 &: \forall \Sigma_\ell = \Sigma\\
+			H_1 &: \exists \Sigma_\ell \neq \Sigma
+		\end{aligned}
+	\] 
+    
+    Likelihood Ratio Test
+\[
+\Lambda = \frac{\underset{\Sigma}{max}L(\Sigma)}{\underset{\Sigma_1,\cdots,\Sigma_g}{max}L(\Sigma_1,\cdots,\Sigma_g)} 
+\] 
+    \[
+        -2\log\Lambda =  \left((n-g)\log|S_p| - \sum^{g}_{l=1}(n_l - 1) \log|S_l| \right) 
+    \]
+    Reject:
+    \[
+        -2c \cdot \log\Lambda > \chi^2_{p \frac{p+1}{2}, \alpha}
+
+    \] 
 
 \end{frame}
 
@@ -191,10 +254,5 @@
 \end{frame}
 
 
-\begin{frame}[t]
-	\frametitle{title}
-	\framesubtitle{subtitle}
-	steal bartlett
-\end{frame}
 
 \end{document}
