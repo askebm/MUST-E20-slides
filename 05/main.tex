@@ -84,10 +84,133 @@
 %%%%%%%%%%%%%%%%
 
 \begin{frame}[t]
+    \frametitle{Agenda}
+    \begin{itemize}
+        \item Motivation
+        \item Principal Components
+        \item Variance
+        \item Sample Based
+        \item Pitfalls
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
 	\frametitle{Motivation}
-	
+
+    \begin{itemize}
+        \item Dimension reduction
+        \item Decorrelate data
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Principal Components}
+    
+    \begin{align*}
+        PC_i &\overset{def}{=} e_i_1 X_1 + \hdots + e_i_p X_p = e_i^T X\\
+    \end{align*}
+
+    \pause
+
+    \begin{itemize}
+        \item Maximize variance
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Variance Explained}
+    
+    \begin{align*}
+    \Sigma =  E\Lambda E^T
+    \end{align*}
+
+    \begin{align*}
+    PC_i: \frac{\lambda_i}{ \sum^{p}_{j=1} \lambda_j  }
+    \end{align*}
+    
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Visualization}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\linewidth]{images/pca.png}
+    \end{figure}
 
 
+    
+\end{frame}
+\begin{frame}[t]
+    \frametitle{Visualization}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\linewidth]{images/pcaArrow.png}
+    \end{figure}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Sample Based}
+
+    \begin{align*}
+    X = \begin{bmatrix}
+        X_1_1 & \hdots & X_1_p \\
+        \vdots &  \ddots & \vdots  \\
+        X_j_1 & \hdots & X_j_p \\
+    \end{bmatrix}
+    \end{align*}
+
+    \begin{align*}
+        \hat{\Sigma} = S = \frac{1}{n-1} \sum^{n}_{j=1} (X_j - \bar{X} )(X_j - \bar{X} )^T
+    \end{align*}
+   \begin{align*}
+    \frac{ \sum^{r}_{i=1} \hat{\lambda_i}  }{ \sum^{p}_{j=1} \hat{\lambda_j}  }
+   \end{align*}
+    
+
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Pitfalls}
+
+    \begin{align*}
+    X = \begin{bmatrix}
+        X_1_1 & \hdots & X_1_p \\
+        \vdots &  \ddots & \vdots  \\
+        X_j_1 & \hdots & X_j_p \\
+    \end{bmatrix}
+    \end{align*}
+
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Pitfalls}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/compare.png}
+    \end{figure}
+    
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Inference}
+    
+    \begin{align*}
+        \hat{\lambda_i} \sim N\left(\lambda_i,2\frac{\lambda_i^2}{n}\right) 
+    \end{align*}
+    \begin{align*}
+        \frac{ \hat{\lambda_i}  }{1+ \sqrt{ \frac{2}{n} } z_{\frac{\alpha }{2}}} < \lambda_i < \frac{ \hat{\lambda_i}  }{1- \sqrt{ \frac{2}{n} } z_{\frac{\alpha }{2}}}
+    \end{align*}
+    
+    
 
 \end{frame}
 
