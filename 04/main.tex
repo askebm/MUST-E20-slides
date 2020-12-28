@@ -189,21 +189,67 @@ University of Southern Denmark
 
 	\[
 	\begin{gathered}
-		\left( x- \mu  \right) \Sigma^{-1}  \left( x- \mu \right) \\
+		\left( x- \mu  \right) ^{T} \Sigma^{-1}  \left( x- \mu \right) \\
 													 \updownarrow\\
 													 \left( \hat{\beta} - \beta \right) ^{T}
-													 \left( \frac{Z^{T}Z}{\sigma^{2}}   \right) 
+													 \left( \frac{Z^{T}Z}{ \left( r+1 \right) \sigma^{2}}   \right) 
 													 \left( \hat{\beta}  -\beta\right) 
 	\end{gathered}
 	\] 
 
 \end{frame}
 
+
 \begin{frame}[t]
 	\frametitle{Hypothesis test}
 	\framesubtitle{subtitle}
+
+	\[
+	H_0 : \beta = \beta^{*}
+	.\] 
+
+	\[
+		\left( \hat{\beta} - \beta^{*}\right) ^{T}
+		\left( \frac{Z^{T}Z}{ \left( r+1 \right) \sigma^{2}}   \right) 
+		\left( \hat{\beta}  -\beta^{*}\right) 
+		>
+		F_{r+1,n- \left( r+1 \right) , \alpha}
+	\] 
+
 	
 \end{frame}
 
+\begin{frame}[t]
+	\frametitle{Model reduction}
+	\framesubtitle{subtitle}
+
+	\[
+	\beta
+	=
+	\begin{bmatrix}
+		\beta_{ \left( 1 \right) }\\
+		\beta_{ \left( 2 \right) }
+	\end{bmatrix}
+	\begin{matrix}
+		\left( q+1 \right) \\
+		\left( r-q \right) 
+	\end{matrix}
+	.\] 
+	\pause
+	\[
+		\begin{gathered}
+		ESS = \Delta SSR =
+		SSR_{\beta} 
+		-
+		SSR_{\beta_{ \left( 1 \right) }} \\
+		\frac{1}{s^{2}} 
+		\cdot
+		\frac{ESS}{r-q} 
+		\sim
+		F_{r-q,n- \left( r+1 \right) }
+		\end{gathered}
+	.\] 
+
+\end{frame}
 
 \end{document}
