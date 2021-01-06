@@ -25,6 +25,9 @@
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{listings}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{import}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 \usepackage{helvet}
@@ -38,13 +41,14 @@
   \href{#1}{{\usebeamercolor[bg]{SDUsimple}#2}}%
 }
 
-\title{Title}
-\subtitle{Subtitle}
+\title{Grouping and Clustering}
+\subtitle{Multivariate Statistic}
 %\date{\today}
 \date{ }
 
 \author{
-  \textbf{Author}
+	Made by: \\
+	\textbf{Lasse Gøransson, Marc Evald, Anne-Charlotte Poulsen \& Aske Møller}
 }
 
 % - Give the names in the same order as they appear in the paper.
@@ -82,38 +86,123 @@
 \end{frame}}
 %%%%%%%%%%%%%%%%
 
-% TOC
-\begin{frame}{Agenda}{\vphantom{(y}}
-\tableofcontents
+
+\begin{frame}[t]
+	\frametitle{Agenda}
+	\framesubtitle{subtitle}
+
+	\begin{itemize}
+		\item Motivation
+		\item Distance Measure
+		\item Search Methods
+		\begin{itemize}
+			\item Hierarchical Grouping
+			\item K-Means Clustering
+			\item Gaussian Mixture
+		\end{itemize}
+	\end{itemize}
+	
 \end{frame}
-%%%%%%%%%%%%%%%
 
-\section{Introduction}
+\begin{frame}[t]
+	\frametitle{Motivation}
+	\framesubtitle{subtitle}
 
-
-\subsection{Course Overview}
-\begin{frame}{Introduction}{Curriculum for Reguleringsteknik (REG)\vphantom{(y}}
-\vspace{-0.7em}
-{\footnotesize Matematiske og grafiske metoder til syntese af {\color{red}lineære tidsinvariante systemer}:\footnote{{\tiny Based on https://fagbesk.sam.sdu.dk/?fag\_id=39673}}
-\begin{itemize}
-\item {\color{red}diskret og kontinuert tilstandsbeskrivelse}
-\item analyse i tid og frekvens
-\item stabilitet, reguleringshastighed, følsomhed og fejl
-\item digitale PI, PID, LEAD og LAG regulatorer (serieregulatorer)
-\item tilstandsregulering, pole-placement og tilstands-estimering (observer)
-\item optimal regulering (least squares) og optimal tilstands-estimation (Kalman-filter)
-\end{itemize}
-\vspace{0.5em}
-\textbf{Færdigheder}:\\
-Efter gennemførelse af kurset kan den succesfulde studerende:
-\begin{itemize}
-\item kunne analysere, dimensionere og implementere såvel kontinuert som tidsdiskret regulering af lineære tidsinvariante og stokastiske systemer
-\end{itemize}
-\vspace{0.5em}
-\textbf{Kompetencer}:\\
-Efter gennemførelse af kurset kan den succesfulde studerende:
-\begin{itemize}
-\item anvende og implementere klassiske og moderne reguleringsteknikker for at kunne styre og regulere en robot hurtig og præcist
-\end{itemize}}
+	Split observation into K clusters
+	
 \end{frame}
+
+\begin{frame}[t]
+	\frametitle{Distance Measure}
+	\framesubtitle{Between Observations}
+
+	\begin{columns}
+		\begin{column}{0.3\textwidth}
+
+			Properties
+
+		\end{column}
+		\begin{column}{0.5\textwidth}
+
+	\[
+		\begin{aligned}
+			d \left( x ,y  \right) 
+			&=
+			 \left( 
+				 \sum^{p}_{i=1} | x_i - y_i | ^{m}
+			 \right) ^{ \frac{1}{m} }
+			 \\
+			d \left( x ,y  \right) 
+			&=
+			\sqrt{
+				\sum^{p}_{i=1}  \left(  x_i - y_i  \right)  ^{2}
+			}
+			d \left( x ,y  \right) 
+			\\
+			d \left( x,y \right) 
+			&=
+				\sum^{p}_{i=1}  | x_i - y_i |
+		\end{aligned}
+	.\] 
+			
+		\end{column}
+	\end{columns}
+
+	
+\end{frame}
+
+\begin{frame}[t]
+	\frametitle{Distance Measure}
+	\framesubtitle{Between Clusters}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.23\textwidth]{images/linkage.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[t]
+	\frametitle{Search Methods}
+	\framesubtitle{Hierarchical}
+
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\[
+			D = \begin{bmatrix}
+				0 & d_{12} & \cdots & d_{1n}\\
+					& \ddots & & \\
+					&& \ddots& \\
+					&&&0
+			\end{bmatrix}
+			.\] 
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=1\textwidth]{images/hirakisk-2.png}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Search Methods}
+	\framesubtitle{K-means}
+	
+	\begin{figure}[h]
+		\centering
+		\scalebox{0.7}{
+		\import{images/}{k-means.pdf_tex}
+	}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}[t]
+	\frametitle{Search Methods}
+	\framesubtitle{Gaussian Mixture}
+	
+\end{frame}
+
 \end{document}
