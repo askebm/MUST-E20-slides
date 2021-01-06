@@ -25,6 +25,7 @@
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{listings}
+\usepackage{amsmath}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 \usepackage{helvet}
@@ -102,10 +103,10 @@ University of Southern Denmark
     \frametitle{Multivariate}
     \framesubtitle{Theory}
     \begin{itemize}
-        \item Stochastic Variable
+        \item<only@1> Stochastic Variable
             \[
                 \underset{p\times 1}{X}
-            .\] 
+            \] 
         \item Mean
             \[
                 E \left[ X \right] =
@@ -115,7 +116,7 @@ University of Southern Denmark
                     \vdots\\
                     E \left[ X_p  \right] 
                 \end{bmatrix}
-            .\] 
+            \] 
         \item Variance
             \[
                 V \left[ X  \right]  =
@@ -127,7 +128,16 @@ University of Southern Denmark
                                  & & \ddots &\\
                                  &&& \sigma_{p}^{2}
                 \end{bmatrix}
-            .\] 
+            \] 
+					\item<2> Correlation
+						\[
+						\rho = \begin{bmatrix}
+							1 & \rho_{12} & \cdots & \rho_{1p}\\
+								& \ddots& & \rho_{2p}\\
+								&&&\\
+								& & &1
+						\end{bmatrix}
+						.\] 
     \end{itemize}
 \end{frame}
 
@@ -147,7 +157,7 @@ University of Southern Denmark
                         x_{n1} & \cdots & x_{np}
                     \end{bmatrix}\\
                 \end{bmatrix}
-            .\] 
+            \] 
         \item Estimated Mean
             \[
                 \hat{\mu} = \bar{x} = 
@@ -156,14 +166,20 @@ University of Southern Denmark
                     \vdots\\
                     \frac{1}{n} \sum^{n}_{j=1} x_{jp}
                 \end{bmatrix}
-            .\] 
+            \] 
         \item Estimated Variance
             \[
                 \hat{\Sigma} = S = 
                 \frac{1}{n-1} \sum^{n}_{j=1} 
                 \left( x_j - \bar{x}  \right) 
                 \left( x_j - \bar{x}  \right) ^{T}
-            .\] 
+            \] 
+				\item Estimated Correlation
+					\[
+					\hat{\rho} = R
+					\rightarrow
+					r_{ij} = \frac{\sigma_{ij}}{\sqrt{\sigma_{ii} \sigma_{jj}}} 
+					\] 
     \end{itemize}
 \end{frame}
 
@@ -182,7 +198,7 @@ University of Southern Denmark
     \end{figure}
 
     \begin{itemize}
-        \item Mahalanobis Distance $(x - \mu)^T \Sigma^{-1} (x - \mu)$\sim \chi^2_2
+        \item Mahalanobis Distance $(x - \mu)^T \Sigma^{-1} (x - \mu)\sim \chi^2_p$
     \end{itemize}
 
 \end{frame}
