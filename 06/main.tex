@@ -25,6 +25,8 @@
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{listings}
+\usepackage{amsmath}
+\usepackage{booktabs}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 \usepackage{helvet}
@@ -37,6 +39,11 @@
 \newcommand{\chref}[2]{%
   \href{#1}{{\usebeamercolor[bg]{SDUsimple}#2}}%
 }
+
+\newcommand\gldec[2]{
+	\underset{#2}{\overset{#1}{\gtrless}}
+}
+
 
 \title{Detection and classification (LDA and QDA)}
 \subtitle{Multivariate Statistic}
@@ -87,7 +94,10 @@
 \begin{frame}{Agenda}{Grouping and Clusterin}{\vphantom{(y}}
 \begin{itemize}
     \item Motivation
-    \item 
+		\item Assumptions 
+		\item Misclassification
+		\item Classification with LDA and QDA
+		\item Several populations
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%
@@ -98,25 +108,18 @@
     \begin{itemize}
         \item Sort new observations into one of two or more populations
     \end{itemize}
-    Example:
-    \begin{itemize}
-        \item Determining if patient has bowel cancer
-        \item Ordinarily requires colonoscopy
-        \item Use stool sample as screening tool
-    \end{itemize}
 \end{frame}
 
 \begin{frame}{Two-population Classification}{Detection and Classification}
-    Having two populations: \\
     \begin{itemize}
         \item $\pi_1$: pdf $f_1(x)$, $\mu_1$, $\Sigma_1$
         \item $\pi_2$: pdf $f_2(x)$, $\mu_2$, $\Sigma_2$
+				\item $X_0 \in \mathbb{R}^p$ \\
     \end{itemize}
-    And new observation $X_0 \in \mathbb{R}^p$ \\
-    Splitting $\mathbb{R}^p$ into two regions $R_1$, $R_2$ \\
-    Decision becomes: \\
+
+		\vspace{2cm}
+
     \quad $d(X_0) = \begin{cases} d1, &X_0 \in R_1 \\ d2, &X_0 \in R_2 \end{cases}$ \\
-    How to formulate $d()$?
 \end{frame}
 
 \begin{frame}{Misclassifications}{Two-population Classification}
@@ -150,51 +153,66 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Rules}{Detection and Classification}
-    Classification rules: 
-    \begin{enumerate}
+\begin{frame}{General Criteria}{Detection and Classification}
+	\begin{itemize}
         \item General Criteria (using ECM)
         \begin{itemize}
-            \item $ p_1 f_1(X_0) c[d_2 | \pi_1] \overset{d_1}{>}\underset{d_2}{<} p_2 f_2(X_0) c[d_1 | \pi_2]$
-            \item $ \frac{f_1(X_0)}{f_2(X_0)} \overset{d_1}{>}\underset{d_2}{<} \frac{p_2}{p_1} \frac{c[d_1 | \pi_2]}{c[d_2 | \pi_1]}$
+					\item $ p_1 f_1(X_0) c[d_2 | \pi_1] \gldec{d_1}{d_2} p_2 f_2(X_0) c[d_1 | \pi_2]$
+            \item $ \frac{f_1(X_0)}{f_2(X_0)} \gldec{d_1}{d_2} \frac{p_2}{p_1} \frac{c[d_1 | \pi_2]}{c[d_2 | \pi_1]}$
         \end{itemize}
+				\pause
         \item Equal Cost ($min(TPM)$)
         \begin{itemize}
-            \item $ \frac{f_1(X_0)}{f_2(X_0)} \overset{d_1}{>}\underset{d_2}{<} \frac{p_2}{p_1}$
+            \item $ \frac{f_1(X_0)}{f_2(X_0)}  \gldec{d_1}{d_2} \frac{p_2}{p_1}$
         \end{itemize}
+				\pause
         \item Equal Cost \& Priors
         \begin{itemize}
-            \item $ f_1(X_0) \overset{d_1}{>}\underset{d_2}{<} f_2(X_0)$
+            \item $ f_1(X_0)  \gldec{d_1}{d_2} f_2(X_0)$
         \end{itemize}
+				\pause
         \item MAP
         \begin{itemize}
             \item $P[\pi_1 | X_0 ] = \frac{p_1 f_1(X_0)}{p_1 f_1(X_0) + p_2 f_2(X_0)}$
             \item $P[\pi_2 | X_0 ] = \frac{p_2 f_2(X_0)}{p_1 f_1(X_0) + p_2 f_2(X_0)}$
         \end{itemize}
-    \end{enumerate}
+			\end{itemize}
 \end{frame}
 
 \begin{frame}{Classification for 2 MVN populations}{Detection and Classification}
     Having $X|_{\pi_i} \sim \mathcal{N}_p(\mu_i, \Sigma_i)$ for $i = 1, 2$ \\
     If $\Sigma_1 = \Sigma_2 \overset{def}{=} \Sigma$:
+		\pause
     \begin{itemize}
         \item LDA
         \begin{itemize}
-            \item $(\mu_1 - \mu_2)^T \Sigma^{-1}X_0 - \frac{1}{2}(\mu_1 - \mu_2)^T \Sigma^{-1}(\mu_1 - \mu_2) \overset{d_1}{>}\underset{d_2}{<} \log(\frac{p_2}{p_1} \frac{c(d_1 | \pi_2)}{c(d_2 | \pi_1})$
-            \item Sample based? $\mu_i \rightarrow \bar{x}_i$, $\Sigma \rightarrow S_p$
+            \item $(\mu_1 - \mu_2)^T \Sigma^{-1}X_0 - \frac{1}{2}(\mu_1 - \mu_2)^T \Sigma^{-1}(\mu_1 - \mu_2)  \gldec{d_1}{d_2} \log(\frac{p_2}{p_1} \frac{c(d_1 | \pi_2)}{c(d_2 | \pi_1})$
         \end{itemize}
     \end{itemize}
+		\pause
     If $\Sigma_1 \neq \Sigma_2$:
     \begin{itemize}
         \item QDA
         \begin{itemize}
-            \item $\frac{1}{2} X_0^T(\Sigma_1^{-1} - \Sigma_2^{-1})X_0 + (\mu_1^T\Sigma_1 $
+            \item $
+							\frac{1}{2} X_0^T(\Sigma_1^{-1} - \Sigma_2^{-1})X_0 + %(\mu_1^T\Sigma_1
+							\left( \mu_1^{T} \Sigma^{-1}_{1} - \mu_2^{T} \Sigma^{-1}_{2}  \right) X_0 -k
+							\gldec{d_1}{d_2}
+							\log(\frac{p_2}{p_1} \frac{c(d_1 | \pi_2)}{c(d_2 | \pi_1})
+							$
+						\item $
+							k = \frac{1}{2}  \log \frac{| \Sigma_1 |}{| \Sigma_2 |} +
+							\frac{1}{2}  \left( 
+								\mu_1^{T}\Sigma_1^{-1}\mu_1
+								-
+								\mu_2^{T}\Sigma_2^{-1}\mu_2
+								 \right) 
+							$
         \end{itemize}
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Model Check}{Classification for 2 MVN populations}
-    Form confusion matrix: \\
         \begin{table}[h]
         \begin{tabular}{@{}llll@{}}
         \toprule
@@ -203,11 +221,10 @@
         $d_2$ & $n_{1M}$ & $n_{2C}$ \\ \midrule 
         \end{tabular}
         \end{table}
-    Apparent Error Rate: 
+				\pause
     \begin{itemize}
         \item $APER = \frac{n_{1M} + n_{2M}}{n_{1M} + n_{1C} + n_{2M} + n_{2C}}$
     \end{itemize}
-    Estimated Actual Error Rate:
     \begin{itemize}
         \item $\hat{AER}$ 
     \end{itemize}
@@ -226,9 +243,14 @@
 \begin{frame}{Classification}{Classification for Several Populations}
     Split up the sample space into g regions. \\
     
-    \quad $d(x_0) = \begin{cases} d1, &X_0 \in R_1 \\ d2, &x_0 \in R_2 \\
-    d3, &x_0 \in R_3 \\ ., &. \in . \\
-    dg, &Xxg \in R_g \end{cases}$ \\
+    \quad $d(x_0) =
+		\begin{cases}
+			d1, &X_0 \in R_1 \\
+			d2, &X_0 \in R_2 \\
+    d3, &X_0 \in R_3 \\
+		\vdots & \phantom{X_1}\vdots \\
+    dg, &X_0 \in R_g
+	\end{cases}$ \\
   
 \end{frame}
 \begin{frame}{{Misclassifications}}{Classification for Several Populations}
@@ -237,11 +259,12 @@
                 \begin{table}[h]
         \begin{tabular}{@{}llllll@{}}
         \toprule
-           Classify as $\rightarrow$   & $d_1$ & $d_2$ & ... &  $d_g$          \\ \midrule
-        True $\pi_1$ & $P[d_1 | \pi_1]$ & $P[d_2 | \pi_1]$ & ... & $P[d_g | \pi_1]$ \\
-        \downarrow $\pi_2$ & $P[d_1 | \pi_2]$ & $P[d_2 | \pi_2]$ & ... &  $P[d_g | \pi_2]$ \\ 
-        $...$   & ... & ... & ... & ... \\
-        $\pi_g$ & $P[d_1 | \pi_g]$ & $P[d_2 | \pi_g]$ & ... &  $P[d_g | \pi_g]$ \midrule 
+           Classify as $\rightarrow$   & $d_1$ & $d_2$ & ... &  $d_g$          \\
+					 \midrule
+        True $\pi_1$ & $P[d_1 | \pi_1]$ & $P[d_2 | \pi_1]$ & \cdots & $P[d_g | \pi_1]$ \\
+        \downarrow $\pi_2$ & $P[d_1 | \pi_2]$ & $P[d_2 | \pi_2]$ & \cdots &  $P[d_g | \pi_2]$ \\ 
+        $\vdots$   & \vdots & \vdots & \ddots  & \vdots \\
+        $\pi_g$ & $P[d_1 | \pi_g]$ & $P[d_2 | \pi_g]$ & \cdots &  $P[d_g | \pi_g]$ \midrule 
         \end{tabular}
         \end{table}
     \item Cost Matrix
