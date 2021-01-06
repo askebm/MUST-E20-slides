@@ -25,6 +25,7 @@
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{listings}
+\usepackage{amsmath}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 \usepackage{helvet}
@@ -137,8 +138,8 @@
 		SSB &=
 		\sum^{g}_{\ell=1} 
 		\sum^{n_\ell}_{j=1} 
-		\left( X_{\ell}- \bar{X} \right) 
-		\left( X_{\ell}- \bar{X} \right) ^{T}\\
+		\left( \bar{X_{\ell}}- \bar{X} \right) 
+		\left( \bar{X_{\ell}}- \bar{X} \right) ^{T}\\
 	\end{aligned}
 	\] 
 	\vspace{1cm}
@@ -202,7 +203,6 @@
     Reject:
     \[
         -2c \cdot \log\Lambda > \chi^2_{p \frac{p+1}{2}, \alpha}
-
     \] 
 
 \end{frame}
@@ -248,9 +248,8 @@
 			H_{1,\beta} &: \exists \beta_{k} \neq 0
 		\end{aligned}
 				$
-	\end{centering}
-
 	\end{tabular}
+	\end{centering}
 \end{frame}
 
 
