@@ -25,6 +25,7 @@
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{listings}
+\usepackage{amsmath}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 \usepackage{helvet}
@@ -199,7 +200,7 @@ University of Southern Denmark
         \end{itemize}
         Test Statistic: \\
         \begin{center}
-                    \quad $T_0^2 = \left( \bar{D} - \delta_0 \right)^T \left( \frac{S_d}{n} \right) \left( \bar{D} - \delta_0 \right)$ \\
+					\quad $T_0^2 = \left( \bar{D} - \delta_0 \right)^T \left( \frac{S_d}{n}  \right) ^{-1} \left( \bar{D} - \delta_0 \right)$ \\
         \end{center}
     Reject: \\
     \begin{itemize}
@@ -217,14 +218,14 @@ University of Southern Denmark
 			S_p = 
 			\frac{  \left( n_1 -1  \right) S_1 +  \left( n_2 -1  \right) S_2}
 			{ \left( n_1 -1  \right) +  \left( n_2 -1  \right) } 
-			.\] 
+			\] 
 		\item Unequal $\Sigma$
 			\[
 			T^{2} =
 			\left( \bar{D} - \delta  \right) ^{T}
-			\left( \frac{S_1}{n_1} + \frac{S_2}{n_2}  \right) 
+			\left( \frac{S_1}{n_1} + \frac{S_2}{n_2}  \right) ^{-1}
 			\left( \bar{D} - \delta  \right)
-			.\] 
+			\] 
 	\end{itemize}
 \end{frame}
 \begin{frame}[t]
@@ -239,7 +240,7 @@ University of Southern Denmark
 		<
 		\frac{p  \left( n-1 \right) }{n-p} 
 		F_{p,n-p,\alpha}
-	.\] 
+	\] 
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.35\linewidth]{../01/images/1.png}
@@ -255,7 +256,26 @@ University of Southern Denmark
 			H_0 &: \Sigma_X = \Sigma_Y\\
 			H_1 &: \Sigma_X \neq \Sigma_Y
 		\end{aligned}
-	.\] 
+	\] 
+
+	\[
+		\begin{aligned}
+			\Lambda &= \frac{
+		\underset{\Sigma}{max}L \left( \Sigma \right) 
+	}{
+	\underset{\Sigma_X,\Sigma_Y}{max}L  \left( \Sigma_X,\Sigma_Y  \right) 
+	} \\
+	-2 \log  \Lambda
+	&\approx
+	\left( n_{X} + n_{Y} -2  \right) \cdot \log  |S_{p}| 
+	-  \left( n_{X} -1  \right) \cdot \log |S_{X}|
+	-  \left( n_{Y} -1  \right) \cdot \log |S_{Y}|\\
+	-2 \log  \Lambda
+	& \underset{approx}{\sim}
+	\chi^{2}_{p \frac{p+1}{2} }
+		\end{aligned}
+	\] 
+
 \end{frame}
 
 \end{document}
