@@ -26,6 +26,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{listings}
 \usepackage{amsmath}
+\usepackage{import}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 \usepackage{helvet}
@@ -204,16 +205,24 @@ University of Southern Denmark
     \[
         \underset{p\times1}{X} \sim N_p(\mu, \Sigma)
     \] 
-    Contour Plot 
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.3]{images/1.png}
+				\import{images/}{mvn-3d.pdf_tex}
     \end{figure}
 
+\end{frame}
+
+\begin{frame}[t]
+	\frametitle{MVN}
+	\framesubtitle{Contours}
+	\begin{figure}[h]
+		\centering
+		\import{images/}{mvn.pdf_tex}
+	\end{figure}
+	\pause
     \begin{itemize}
         \item Mahalanobis Distance $(x - \mu)^T \Sigma^{-1} (x - \mu)\sim \chi^2_p$
     \end{itemize}
-
 \end{frame}
 
 \begin{frame}[t]
