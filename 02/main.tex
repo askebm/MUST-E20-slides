@@ -26,6 +26,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{listings}
 \usepackage{amsmath}
+\usepackage{import}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 \usepackage{helvet}
@@ -85,21 +86,21 @@ University of Southern Denmark
 %%%%%%%%%%%%%%%%
 
 \begin{frame}[t]
-    \frametitle{Agenda}
-    \begin{itemize}
-        \item Motivation
-        \item One-sample
-        \item Two-sample
-        \item Bartlett
-    \end{itemize} 
+	\frametitle{Agenda}
+	\begin{itemize}
+		\item Motivation
+		\item One-sample
+		\item Two-sample
+		\item Bartlett
+	\end{itemize} 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Motivation}
-    
-   \\
-   \vspace{1cm}
-   \pause
+	\frametitle{Motivation}
+
+	\\
+	\vspace{1cm}
+	\pause
 
 	Assumptions 
 
@@ -107,7 +108,6 @@ University of Southern Denmark
 		\item Obs. IID
 		\item MVN distributed 
 	\end{itemize}
-	\\
 
 \end{frame}
 
@@ -165,14 +165,14 @@ University of Southern Denmark
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Motivation}
-    
+	\frametitle{Motivation}
+
 \end{frame}
 
 \begin{frame}{Hypothesis Testing on $\mu$}{Two-sample}
 
 	Assumptions.
-	
+
 	Model:
 	\begin{itemize}
 		\item Pair wise observations. $X$ and $Y$.
@@ -193,20 +193,20 @@ University of Southern Denmark
 \end{frame}
 
 \begin{frame}{Hypothesis Testing}{Paired comparison}
-    Estimates: \\
-        \begin{itemize}
-            \item $\bar{D} = \frac{1}{n} \sum^n_{j=1} D_j$ 
-            \item $S_d = \frac{1}{n-1} \sum^n_{j=1} \left(D_j - \bar{D} \right)^T \left(D_j - \bar{D} \right)$ 
-        \end{itemize}
-        Test Statistic: \\
-        \begin{center}
-					\quad $T_0^2 = \left( \bar{D} - \delta_0 \right)^T \left( \frac{S_d}{n}  \right) ^{-1} \left( \bar{D} - \delta_0 \right)$ \\
-        \end{center}
-    Reject: \\
-    \begin{itemize}
-        \item p-value
-        \item Critical value
-    \end{itemize}
+	Estimates: \\
+	\begin{itemize}
+		\item $\bar{D} = \frac{1}{n} \sum^n_{j=1} D_j$ 
+		\item $S_d = \frac{1}{n-1} \sum^n_{j=1} \left(D_j - \bar{D} \right)^T \left(D_j - \bar{D} \right)$ 
+	\end{itemize}
+	Test Statistic: \\
+	\begin{center}
+		\quad $T_0^2 = \left( \bar{D} - \delta_0 \right)^T \left( \frac{S_d}{n}  \right) ^{-1} \left( \bar{D} - \delta_0 \right)$ \\
+	\end{center}
+	Reject: \\
+	\begin{itemize}
+		\item p-value
+		\item Critical value
+	\end{itemize}
 \end{frame}
 
 \begin{frame}[t]
@@ -215,16 +215,16 @@ University of Southern Denmark
 	\begin{itemize}
 		\item Equal $\Sigma$\\
 			\[
-			S_p = 
-			\frac{  \left( n_1 -1  \right) S_1 +  \left( n_2 -1  \right) S_2}
-			{ \left( n_1 -1  \right) +  \left( n_2 -1  \right) } 
+				S_p = 
+				\frac{  \left( n_1 -1  \right) S_1 +  \left( n_2 -1  \right) S_2}
+				{ \left( n_1 -1  \right) +  \left( n_2 -1  \right) } 
 			\] 
 		\item Unequal $\Sigma$
 			\[
-			T^{2} =
-			\left( \bar{D} - \delta  \right) ^{T}
-			\left( \frac{S_1}{n_1} + \frac{S_2}{n_2}  \right) ^{-1}
-			\left( \bar{D} - \delta  \right)
+				T^{2} =
+				\left( \bar{D} - \delta  \right) ^{T}
+				\left( \frac{S_1}{n_1} + \frac{S_2}{n_2}  \right) ^{-1}
+				\left( \bar{D} - \delta  \right)
 			\] 
 	\end{itemize}
 \end{frame}
@@ -243,7 +243,7 @@ University of Southern Denmark
 	\] 
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.35\linewidth]{../01/images/1.png}
+		\import{../01/images/}{mvn.pdf_tex}
 	\end{figure}
 \end{frame}
 
@@ -261,11 +261,11 @@ University of Southern Denmark
 	\[
 		\begin{aligned}
 			\Lambda &= \frac{
-		\underset{\Sigma}{max}L \left( \Sigma \right) 
-	}{
-	\underset{\Sigma_X,\Sigma_Y}{max}L  \left( \Sigma_X,\Sigma_Y  \right) 
-	} \\
-	-2 \log  \Lambda
+				\underset{\Sigma}{max}L \left( \Sigma \right) 
+				}{
+				\underset{\Sigma_X,\Sigma_Y}{max}L  \left( \Sigma_X,\Sigma_Y  \right) 
+			} \\
+			-2 \log  \Lambda
 	&\approx
 	\left( n_{X} + n_{Y} -2  \right) \cdot \log  |S_{p}| 
 	-  \left( n_{X} -1  \right) \cdot \log |S_{X}|
@@ -273,8 +273,8 @@ University of Southern Denmark
 	-2 \log  \Lambda
 	& \underset{approx}{\sim}
 	\chi^{2}_{p \frac{p+1}{2} }
-		\end{aligned}
-	\] 
+	\end{aligned}
+\] 
 
 \end{frame}
 
