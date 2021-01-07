@@ -85,6 +85,19 @@
 %%%%%%%%%%%%%%%%
 
 \begin{frame}[t]
+	\frametitle{Agenda}
+	\framesubtitle{}
+
+	\begin{itemize}
+		\item Model
+		\item MANOVA
+		\item Model Check
+		\item MANOVA2
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[t]
     \frametitle{Model}
     \begin{figure}[H]
     \includegraphics[scale=0.5]{images/modelManoca.png}
@@ -175,8 +188,8 @@
 \begin{frame}[t]
     \frametitle{Pairwise CI's}
     \[
-        \left[(\bar{X}_{ai} - \bar{X}_{bi}) \pm t_{n-g}, \frac{\alpha}{ \frac{pg(g-1)}{2}} \cdot \sqrt{S_{wii} \cdot \frac{1}{n_a} + \frac{1}{n_b} } \right] , i = 1,...,p \land a,b = 1,...,g
-    \] 
+			\left[(\bar{X}_{ai} - \bar{X}_{bi}) \pm t_{n-g}, \frac{\alpha}{ \frac{pg(g-1)}{2}} \cdot \sqrt{S_{wii} \cdot  \left(  \frac{1}{n_a} + \frac{1}{n_b} }  \right)  \right] , i = 1,...,p \land a,b = 1,...,g
+		\] 
 \begin{figure}[H]
     \includegraphics[scale=0.2]{clusters.png}
 \end{figure}
