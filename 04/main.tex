@@ -84,6 +84,25 @@ University of Southern Denmark
 %%%%%%%%%%%%%%%%
 
 \begin{frame}[t]
+	\frametitle{Agenda}
+
+	\begin{itemize}
+		\item Motivation
+		\item UMLR
+			\begin{itemize}
+				\item Model
+				\item Estimation
+				\item Model Check
+				\item Hypotheses Test
+				\item Confident regions
+				\item Model reduction
+			\end{itemize}
+		\item MMLR
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[t]
 	\frametitle{Motivation}
 
 	\begin{figure}[h]
@@ -159,11 +178,16 @@ University of Southern Denmark
 	\[
 		\begin{aligned}
 			\sum^{n}_{j=1} 
-			\left( Y_j -\bar{Y}   \right)^{2}
+			\left( Y_j -\bar{Y}   \right)
+			\left( Y_j -\bar{Y}    \right) ^{T}
 			&=
-			\sum^{n}_{j=1}  \left( Y_j -\hat{Y}_{j}  \right) ^{2}
+			\sum^{n}_{j=1} 
+			\left( Y_j -\hat{Y}_{j}  \right)
+			\left( Y_j -\hat{Y}_{j}  \right)^{T}
 			&+
-			&\sum^{n}_{j=1}&  \left( \hat{Y}_{j} - \bar{Y}  \right) ^{2} \\
+			&\sum^{n}_{j=1}& 
+			\left( \hat{Y}_{j} - \bar{Y}  \right) 
+			\left( \hat{Y}_{j} - \bar{Y}  \right) ^{T} \\
 			\pause
 			SST &= SSE &+ &SSR
 		\end{aligned}
@@ -180,6 +204,8 @@ University of Southern Denmark
 
 \begin{frame}[t]
 	\frametitle{Hypothesis test}
+
+	New assumption.
 
 	\[
 	H_0 : \beta = \beta^{*}
@@ -241,7 +267,59 @@ University of Southern Denmark
 		\sim
 		F_{r-q,n- \left( r+1 \right) }
 		\end{gathered}
+	\]
+
+\end{frame}
+
+\begin{frame}[t]
+	\frametitle{MMLR}
+	\framesubtitle{Model}
+
+	 \[
+		 \begin{bmatrix}
+			 y_{11} & \cdots & y_{1p}\\
+\vdots& &\vdots\\
+			 y_{n1} & \cdots & y_{np}
+		 \end{bmatrix}
+		 = 
+		\begin{bmatrix}
+			1 & z_{11} & z_{12} & \cdots & z_{1r}\\
+			1 & z_{21} & z_{22} &  & \vdots\\
+			\vdots & & & \ddots & \\
+			1 & z_{n1} &   \cdots && z_{nr}\\
+		\end{bmatrix}
+		\begin{bmatrix}
+			\beta_{01} & \cdots & \beta_{0p}\\
+			\vdots && \vdots\\
+			\beta_{0r} & \cdots & \beta_{rp}
+		\end{bmatrix}
+		+
+		\begin{bmatrix}
+			\epsilon_{11} & \cdots & \epsilon_{1p}\\
+			\vdots & & \vdots \\
+			\epsilon_{n1} & \cdots & \epsilon_{np}
+		\end{bmatrix}
 	\] 
+
+	
+\end{frame}
+
+\begin{frame}[t]
+	\frametitle{MMLR}
+	\framesubtitle{Model reduction}
+
+	\[
+	\Lambda =
+	\frac{\max L \left( \beta_{ \left( 1 \right) }   , \Sigma \right) }
+	{\max L  \left( \beta ,\Sigma  \right) } 
+	\] 
+
+	\pause
+
+	\[
+	\hat{\Sigma} = \hat{\epsilon}^{T} \hat{\epsilon}
+	\] 
+
 
 \end{frame}
 
