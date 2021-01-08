@@ -312,6 +312,11 @@ University of Southern Denmark
 	\Lambda =
 	\frac{\max L \left( \beta_{ \left( 1 \right) }   , \Sigma \right) }
 	{\max L  \left( \beta ,\Sigma  \right) } 
+	=
+	 \left( 
+		 \frac{ | \hat{\Sigma} |}{| \hat{\Sigma}_{ \left( 1 \right) }|} 
+		  \right) 
+		 ^{ \frac{n}{2} }
 	\] 
 
 	\pause
@@ -319,6 +324,25 @@ University of Southern Denmark
 	\[
 	\hat{\Sigma} = \hat{\epsilon}^{T} \hat{\epsilon}
 	\] 
+
+	\pause
+
+	\[
+		-2 \log  \left( \Lambda  \right) 
+		=
+		-
+		\only<4>{ \left( }
+		n
+		\only<4>{
+		- \left( r+1 \right) 
+		- \frac{p-r+q+1}{2} 
+	\right) }
+		\log  \left( 
+			\frac{| \hat{\Sigma}|}{|\hat{\Sigma}_{ \left( 1 \right) }|} 
+			 \right) 
+			 \underset{approx}{\sim}
+			 \chi^{2}_{ \left( r-q \right) p}
+	.\] 
 
 
 \end{frame}
