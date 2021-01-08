@@ -203,39 +203,28 @@ University of Southern Denmark
 \end{frame}
 
 \begin{frame}[t]
-	\frametitle{Hypothesis test}
+	\frametitle{Inference on $\beta$}
 
 	New assumption.
 
-	\[
-	H_0 : \beta = \beta^{*}
-	.\] 
 
 	\[
 		\left( \hat{\beta} - \beta^{*}\right) ^{T}
 		\left( \frac{Z^{T}Z}{ \left( r+1 \right) \sigma^{2}}   \right) 
 		\left( \hat{\beta}  -\beta^{*}\right) 
-		>
-		F_{r+1,n- \left( r+1 \right) , \alpha}
+		\sim
+		F_{r+1,n- \left( r+1 \right) }
 	\] 
+
+	\pause
+	\begin{itemize}
+		\item Hypothesis Test
+		\item Confidence Region
+	\end{itemize}
 
 	
 \end{frame}
 
-\begin{frame}[t]
-	\frametitle{Confidence regions}
-
-	\[
-	\begin{gathered}
-		\left( x- \mu  \right) ^{T} \Sigma^{-1}  \left( x- \mu \right) \\
-													 \updownarrow\\
-													 \left( \hat{\beta} - \beta \right) ^{T}
-													 \left( \frac{Z^{T}Z}{ \left( r+1 \right) \sigma^{2}}   \right) 
-													 \left( \hat{\beta}  -\beta\right) 
-	\end{gathered}
-	\] 
-
-\end{frame}
 
 
 
