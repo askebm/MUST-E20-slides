@@ -36,7 +36,7 @@
 \newtheorem{proposition}{Proposition}
 % colored hyperlinks
 \newcommand{\chref}[2]{%
-  \href{#1}{{\usebeamercolor[bg]{SDUsimple}#2}}%
+	\href{#1}{{\usebeamercolor[bg]{SDUsimple}#2}}%
 }
 
 \title{Multivariate Analysis of Variance MANOVA}
@@ -55,16 +55,16 @@
 
 \institute[
 %  {\includegraphics[scale=0.2]{SDU_segl}}\\ %insert a company, department or university logo
-  SDU Robotics\\
-  The Maersk Mc-Kinney Moller Institute\\
-  University of Southern Denmark
+SDU Robotics\\
+The Maersk Mc-Kinney Moller Institute\\
+University of Southern Denmark
 ] % optional - is placed in the bottom of the sidebar on every slide
 {% is placed on the bottom of the title page
-  SDU Robotics\\
-  The Maersk Mc-Kinney Moller Institute\\
-  University of Southern Denmark
+	SDU Robotics\\
+	The Maersk Mc-Kinney Moller Institute\\
+	University of Southern Denmark
 
-  %there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
+	%there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
 }
 
 % specify a logo on the titlepage (you can specify additional logos an include them in
@@ -72,15 +72,15 @@
 \pgfdeclareimage[height=0.5cm]{titlepagelogo}{SDUgraphics/SDU_logo_new} % placed on the title page
 %\pgfdeclareimage[height=1.5cm]{titlepagelogo2}{SDUgraphics/SDU_logo_new} % placed on the title page
 \titlegraphic{% is placed on the bottom of the title page
-  \pgfuseimage{titlepagelogo}
-%  \hspace{1cm}\pgfuseimage{titlepagelogo2}
+	\pgfuseimage{titlepagelogo}
+	%  \hspace{1cm}\pgfuseimage{titlepagelogo2}
 }
 
 \begin{document}
 % the titlepage
 {\SDUwavesbg%
-\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page
-  \titlepage
+	\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page
+		\titlepage
 \end{frame}}
 %%%%%%%%%%%%%%%%
 
@@ -94,14 +94,14 @@
 		\item Model Check
 		\item MANOVA2
 	\end{itemize}
-	
+
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Model}
-    \begin{figure}[H]
-    \includegraphics[scale=0.5]{images/modelManoca.png}
-    \end{figure}
+	\frametitle{Model}
+	\begin{figure}[H]
+		\includegraphics[scale=0.5]{images/modelManoca.png}
+	\end{figure}
 \end{frame}
 
 \begin{frame}[t]
@@ -110,26 +110,26 @@
 
 	Assumptions:
 	\begin{itemize}
-	\item 
-	\[
-		X_{\ell,j} \sim N \left( \mu_\ell , \Sigma_\ell  \right) 
-	.\] 
-	\item 
-		\[
-			\Sigma_1 = \Sigma_2 = \cdots = \Sigma_g
-		.\] 
-	\item 
-		\[
-			\mu_\ell = \mu + \tau_\ell, \hspace{1cm} \sum^{g}_{\ell = 1} n_{\ell}\tau_{\ell}=0
-		.\] 
+		\item 
+			\[
+				X_{\ell,j} \sim N \left( \mu_\ell , \Sigma_\ell  \right) 
+			.\] 
+		\item 
+			\[
+				\Sigma_1 = \Sigma_2 = \cdots = \Sigma_g
+			.\] 
+		\item 
+			\[
+				\mu_\ell = \mu + \tau_\ell, \hspace{1cm} \sum^{g}_{\ell = 1} n_{\ell}\tau_{\ell}=0
+			.\] 
 	\end{itemize}
 	Hypothesis
 	\[
-	\begin{aligned}
-		H_0 &: \forall \mu_\ell = \mu \hspace{1cm} \leftrightarrow 
-		\hspace{1cm} \forall \tau_\ell = 0\\
-		H_1 &: \exists \tau_\ell \neq 0
-	\end{aligned}
+		\begin{aligned}
+			H_0 &: \forall \mu_\ell = \mu \hspace{1cm} \leftrightarrow 
+			\hspace{1cm} \forall \tau_\ell = 0\\
+			H_1 &: \exists \tau_\ell \neq 0
+		\end{aligned}
 	.\] 
 
 \end{frame}
@@ -137,86 +137,92 @@
 \begin{frame}[t]
 	\frametitle{Decomposition of variance}
 	\[
-	\begin{aligned}
-        SST &=
-		\sum^{g}_{\ell=1} 
-		\sum^{n_{\ell}}_{j=1} 
-		\left( X_{\ell,j}- \bar{X} \right) 
-		\left( X_{\ell,j}- \bar{X} \right) ^{T}\\
-		SSW &=
-		\sum^{g}_{\ell=1} 
-		\sum^{n_{\ell}}_{j=1} 
-		\left( X_{\ell,j}- \bar{X}_{\ell} \right) 
-		\left( X_{\ell,j}- \bar{X}_{\ell} \right) ^{T}\\
-		SSB &=
-		\sum^{g}_{\ell=1} 
-		\sum^{n_\ell}_{j=1} 
-		\left( \bar{X_{\ell}}- \bar{X} \right) 
-		\left( \bar{X_{\ell}}- \bar{X} \right) ^{T}\\
-	\end{aligned}
+		\begin{aligned}
+			SST &=
+			\sum^{g}_{\ell=1} 
+			\sum^{n_{\ell}}_{j=1} 
+			\left( X_{\ell,j}- \bar{X} \right) 
+			\left( X_{\ell,j}- \bar{X} \right) ^{T}\\
+			SSW &=
+			\sum^{g}_{\ell=1} 
+			\sum^{n_{\ell}}_{j=1} 
+			\left( X_{\ell,j}- \bar{X}_{\ell} \right) 
+			\left( X_{\ell,j}- \bar{X}_{\ell} \right) ^{T}\\
+			SSB &=
+			\sum^{g}_{\ell=1} 
+			\sum^{n_\ell}_{j=1} 
+			\left( \bar{X_{\ell}}- \bar{X} \right) 
+			\left( \bar{X_{\ell}}- \bar{X} \right) ^{T}\\
+		\end{aligned}
 	\] 
 	\vspace{1cm}
-    \pause
+	\pause
 	\[
-	\Lambda ^{*} = \frac{|SSW|}{|SSB + SSW |} 
+		\Lambda ^{*} = \frac{|SSW|}{|SSB + SSW |} 
 	.\] 
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Illustration}
-    \begin{figure}[H]
-    \includegraphics[scale=0.28]{clusters.png}
-    \end{figure} 
+	\frametitle{Illustration}
+	\begin{figure}[H]
+		\includegraphics[scale=0.28]{clusters.png}
+	\end{figure} 
 \end{frame}
 \begin{frame}[t]
-    \frametitle{Exact Distributions of Wilks Lambda.}
-    
-    \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{images/1.png}
-    \end{figure}
+	\frametitle{Exact Distributions of Wilks Lambda.}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{images/1.png}
+	\end{figure}
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Approximate distribution of Wilks Lambda.}
-    \[
-        -\left(n-1-\frac{p+g}{2}\right)ln\left( \Lambda^*\right) \sim \chi^2_{p(g-1)}
-    \]  
+	\frametitle{Approximate distribution of Wilks Lambda.}
+	\[
+		-\left(n-1-\frac{p+g}{2}\right)ln\left( \Lambda^*\right) \sim \chi^2_{p(g-1)}
+	\]  
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Pairwise CI's}
-    \[
-			\left[(\bar{X}_{ai} - \bar{X}_{bi}) \pm t_{n-g}, \frac{\alpha}{ \frac{pg(g-1)}{2}} \cdot \sqrt{S_{wii} \cdot  \left(  \frac{1}{n_a} + \frac{1}{n_b} }  \right)  \right] , i = 1,...,p \land a,b = 1,...,g
-		\] 
-\begin{figure}[H]
-    \includegraphics[scale=0.2]{clusters.png}
-\end{figure}
+	\frametitle{Pairwise CI's}
+	\[
+		\left[
+			( \bar{X}_{ai} - \bar{X}_{bi}  ) 
+			\pm t_{n-g},
+			\frac{\alpha}{ \frac{pg(g-1)}{2} } \cdot 
+			\sqrt{S_{wii} \cdot \left(  \frac{1}{n_a} + \frac{1}{n_b}  \right) }
+	\right] , i = 1,...,p \land a,b = 1,...,g
+	\] 
+
+	\begin{figure}[H]
+		\includegraphics[scale=0.2]{clusters.png}
+	\end{figure}
 \end{frame}
 
 
 \begin{frame}[t]
 	\frametitle{Model Check}
-    Hypothesis:
+	Hypothesis:
 	\[
 		\begin{aligned}
 			H_0 &: \forall \Sigma_\ell = \Sigma\\
 			H_1 &: \exists \Sigma_\ell \neq \Sigma
 		\end{aligned}
 	\] 
-    
-    Likelihood Ratio Test
-\[
-\Lambda = \frac{\underset{\Sigma}{max}L(\Sigma)}{\underset{\Sigma_1,\cdots,\Sigma_g}{max}L(\Sigma_1,\cdots,\Sigma_g)} 
-\] 
-    \[
-        -2\log\Lambda =  \left((n-g)\log|S_p| - \sum^{g}_{l=1}(n_l - 1) \log|S_l| \right) 
-    \]
-    Reject:
-    \[
-        -2c \cdot \log\Lambda > \chi^2_{p \frac{p+1}{2}, \alpha}
-    \] 
+
+	Likelihood Ratio Test
+	\[
+		\Lambda = \frac{\underset{\Sigma}{max}L(\Sigma)}{\underset{\Sigma_1,\cdots,\Sigma_g}{max}L(\Sigma_1,\cdots,\Sigma_g)} 
+	\] 
+	\[
+		-2\log\Lambda =  \left((n-g)\log|S_p| - \sum^{g}_{l=1}(n_l - 1) \log|S_l| \right) 
+	\]
+	Reject:
+	\[
+		-2c \cdot \log\Lambda > \chi^2_{p \frac{p+1}{2}, \alpha}
+	\] 
 
 \end{frame}
 
@@ -236,31 +242,31 @@
 			.\] 
 		\item 
 			\[
-			\mu_{\ell k} = \mu + \tau_{\ell} + \beta_{k} + \gamma_{\ell k}
+				\mu_{\ell k} = \mu + \tau_{\ell} + \beta_{k} + \gamma_{\ell k}
 			.\] 
 	\end{itemize}
 
 	Hypothesis\\
 	\begin{centering}
-		
-	\begin{tabular}{ccc}
-		$
-		\begin{aligned}
-			H_{0,\gamma} &: \forall \gamma_{\ell k} = 0\\
-			H_{1,\gamma} &: \exists \gamma_{\ell k} \neq 0
-		\end{aligned}
-		$ & $
-		\begin{aligned}
-			H_{0,\tau} &: \forall \tau{\ell} = 0\\
-			H_{1,\tau} &: \exists \tau{\ell} \neq 0
-		\end{aligned}
+
+		\begin{tabular}{ccc}
+			$
+			\begin{aligned}
+				H_{0,\gamma} &: \forall \gamma_{\ell k} = 0\\
+				H_{1,\gamma} &: \exists \gamma_{\ell k} \neq 0
+			\end{aligned}
+			$ & $
+			\begin{aligned}
+				H_{0,\tau} &: \forall \tau{\ell} = 0\\
+				H_{1,\tau} &: \exists \tau{\ell} \neq 0
+			\end{aligned}
 			$	& $
-		\begin{aligned}
-			H_{0,\beta} &: \forall \beta_{k} = 0\\
-			H_{1,\beta} &: \exists \beta_{k} \neq 0
-		\end{aligned}
-				$
-	\end{tabular}
+			\begin{aligned}
+				H_{0,\beta} &: \forall \beta_{k} = 0\\
+				H_{1,\beta} &: \exists \beta_{k} \neq 0
+			\end{aligned}
+			$
+		\end{tabular}
 	\end{centering}
 \end{frame}
 
