@@ -38,7 +38,7 @@
 \newtheorem{proposition}{Proposition}
 % colored hyperlinks
 \newcommand{\chref}[2]{%
-  \href{#1}{{\usebeamercolor[bg]{SDUsimple}#2}}%
+	\href{#1}{{\usebeamercolor[bg]{SDUsimple}#2}}%
 }
 
 \title{Grouping and Clustering}
@@ -57,16 +57,16 @@
 
 \institute[
 %  {\includegraphics[scale=0.2]{SDU_segl}}\\ %insert a company, department or university logo
-  SDU Robotics\\
-  The Maersk Mc-Kinney Moller Institute\\
-  University of Southern Denmark
+SDU Robotics\\
+The Maersk Mc-Kinney Moller Institute\\
+University of Southern Denmark
 ] % optional - is placed in the bottom of the sidebar on every slide
 {% is placed on the bottom of the title page
-  SDU Robotics\\
-  The Maersk Mc-Kinney Moller Institute\\
-  University of Southern Denmark
+	SDU Robotics\\
+	The Maersk Mc-Kinney Moller Institute\\
+	University of Southern Denmark
 
-  %there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
+	%there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
 }
 
 % specify a logo on the titlepage (you can specify additional logos an include them in
@@ -74,15 +74,15 @@
 \pgfdeclareimage[height=0.5cm]{titlepagelogo}{SDUgraphics/SDU_logo_new} % placed on the title page
 %\pgfdeclareimage[height=1.5cm]{titlepagelogo2}{SDUgraphics/SDU_logo_new} % placed on the title page
 \titlegraphic{% is placed on the bottom of the title page
-  \pgfuseimage{titlepagelogo}
-%  \hspace{1cm}\pgfuseimage{titlepagelogo2}
+	\pgfuseimage{titlepagelogo}
+	%  \hspace{1cm}\pgfuseimage{titlepagelogo2}
 }
 
 \begin{document}
 % the titlepage
 {\SDUwavesbg%
-\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page
-  \titlepage
+	\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page
+		\titlepage
 \end{frame}}
 %%%%%%%%%%%%%%%%
 
@@ -95,13 +95,13 @@
 		\item Motivation
 		\item Distance Measure
 		\item Search Methods
-		\begin{itemize}
-			\item Hierarchical Grouping
-			\item K-Means Clustering
-			\item Gaussian Mixture
-		\end{itemize}
+			\begin{itemize}
+				\item Hierarchical Grouping
+				\item K-Means Clustering
+				\item Gaussian Mixture
+			\end{itemize}
 	\end{itemize}
-	
+
 \end{frame}
 
 \begin{frame}[t]
@@ -109,7 +109,7 @@
 	\framesubtitle{subtitle}
 
 	Split observation into K clusters
-	
+
 \end{frame}
 
 \begin{frame}[t]
@@ -124,14 +124,14 @@
 		\end{column}
 		\begin{column}{0.5\textwidth}
 
-	\[
-		\begin{aligned}
-			d \left( x ,y  \right) 
+			\[
+				\begin{aligned}
+					d \left( x ,y  \right) 
 			&=
-			 \left( 
-				 \sum^{p}_{i=1} | x_i - y_i | ^{m}
-			 \right) ^{ \frac{1}{m} }
-			 \\
+			\left( 
+				\sum^{p}_{i=1} | x_i - y_i | ^{m}
+			\right) ^{ \frac{1}{m} }
+			\\
 			d \left( x ,y  \right) 
 			&=
 			\sqrt{
@@ -141,14 +141,14 @@
 			\\
 			d \left( x,y \right) 
 			&=
-				\sum^{p}_{i=1}  | x_i - y_i |
-		\end{aligned}
-	.\] 
-			
+			\sum^{p}_{i=1}  | x_i - y_i |
+				\end{aligned}
+			.\] 
+
 		\end{column}
 	\end{columns}
 
-	
+
 \end{frame}
 
 \begin{frame}[t]
@@ -157,9 +157,10 @@
 
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.23\textwidth]{images/linkage.pdf}
+		\includegraphics[width=\textwidth]{images/linkage.pdf}
 	\end{figure}
 \end{frame}
+
 
 \begin{frame}[t]
 	\frametitle{Search Methods}
@@ -168,16 +169,16 @@
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			\[
-			D = \begin{bmatrix}
-				0 & d_{12} & \cdots & d_{1n}\\
-					& \ddots & & \\
-					&& \ddots& \\
-					&&&0
-			\end{bmatrix}
+				D = \begin{bmatrix}
+					0 & d_{12} & \cdots & d_{1n}\\
+						& \ddots & & \\
+						&& \ddots& \\
+						&&&0
+				\end{bmatrix}
 			.\] 
 		\end{column}
 		\begin{column}{0.5\textwidth}
-			
+
 			\begin{figure}[h]
 				\centering
 				\includegraphics[width=1\textwidth]{images/hirakisk-2.png}
@@ -187,14 +188,14 @@
 \end{frame}
 
 \begin{frame}[t]
-\frametitle{Search Methods}
+	\frametitle{Search Methods}
 	\framesubtitle{K-means}
-	
+
 	\begin{figure}[h]
 		\centering
 		\scalebox{0.7}{
-		\import{images/}{k-means.pdf_tex}
-	}
+			\import{images/}{k-means.pdf_tex}
+		}
 	\end{figure}
 
 \end{frame}
@@ -202,12 +203,50 @@
 \begin{frame}[t]
 	\frametitle{Search Methods}
 	\framesubtitle{Gaussian Mixture}
-	
+
+
+	\begin{itemize}
+		\item Model\\
+			\[
+				f _{X} \left( X \right)  =
+				\sum^{K}_{k=1} 
+				p_k f _{Y_k}  \left( x \right) ,
+				\hspace{1cm}
+				x = \left[ x_1, \cdots, x_p \right] ^{T}
+			.\] 
+			\pause
+		\item Estimate 
+			\[
+				L  \left( \{ p_k \} ^{K}_{k=1},
+					\{ \mu_k \}^{K}_{k=1},
+					\{ \Sigma_{k} \}^{K}_{k=1}
+				\right) 
+			.\] 
+			\pause
+		\item Evaluation
+			\[
+				\begin{aligned}
+					AIC &= 2 \log L _{\max} - 2
+					\left( K \cdot  \left[ 1 + \frac{p \left( p+3 \right) }{2}  \right] -1  \right) \\
+					BIC &= 2 \log L _{\max} -
+					\left(  K \cdot  \left[ 1 + \frac{p \left( p+3 \right) }{2}  \right] -1  \right) 
+					\log n
+				\end{aligned}
+			.\] 
+
+	\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}[t]
+	\frametitle{Search Methods}
+	\framesubtitle{Gaussian Mixture}
+
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.8\linewidth]{images/gmm.png}
 	\end{figure}
-
 
 \end{frame}
 
