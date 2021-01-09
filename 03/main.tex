@@ -26,6 +26,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{listings}
 \usepackage{amsmath}
+\usepackage{booktabs}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 \usepackage{helvet}
@@ -166,16 +167,47 @@ University of Southern Denmark
 \begin{frame}[t]
 	\frametitle{Illustration}
 	\begin{figure}[H]
-		\includegraphics[scale=0.28]{clusters.png}
+		\vspace{-1cm}
+		\scalebox{0.8}{
+		\input{images/clusters.pgf}
+	}
 	\end{figure} 
 \end{frame}
 \begin{frame}[t]
 	\frametitle{Exact Distributions of Wilks Lambda.}
 
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.3]{images/1.png}
-	\end{figure}
+
+	\begin{tabular}{lll@{$\sim$}l}
+		\toprule
+		No. of variables & No. of groups &
+		\multicolumn{2}{l}{Sampling distribution for multivariate normal data}\\
+		\midrule
+		$p=1$ & $g\geq 2$ & 
+		$  \left( \frac{\Sigma n_{\ell}-g}{g-1} \right)
+		\left( \frac{1-\Lambda^{*}}{\Lambda^{*}}   \right) 
+		$
+			& $ F_{g-1,\Sigma n_{\ell}-g} $
+		 \\
+		$p=2$ & $g\geq 2$ & 
+		$  \left( \frac{\Sigma n_{\ell}-g-1}{g-1} \right)
+		\left( \frac{1- \sqrt{ \Lambda^{*}}}{\sqrt{ \Lambda^{*}} }  \right) 
+		$&$
+		 F_{2 \left( g-1 \right) ,2 \left( \Sigma n_{\ell}-g-1 \right) }
+		$\\
+		$p\geq 1$ & $g = 2$ & 
+		$  \left( \frac{\Sigma n_{\ell}-p-1}{p} \right)
+		\left( \frac{1-\Lambda^{*}}{\Lambda^{*}}  \right) 
+		$&$
+		 F_{p,\Sigma n_{\ell}-p-1}
+		$\\
+		$p\geq 1$ & $g = 3$ & 
+		$  \left( \frac{\Sigma n_{\ell}-p-2}{p} \right)
+		\left( \frac{1- \sqrt{ \Lambda^{*}}}{\sqrt{ \Lambda^{*}} }  \right) 
+		$&$
+		 F_{2p,2  \left( \Sigma n_{\ell}-p-2 \right) }
+		$
+	\end{tabular}
+	
 \end{frame}
 
 \begin{frame}[t]
@@ -197,7 +229,10 @@ University of Southern Denmark
 	\] 
 
 	\begin{figure}[H]
-		\includegraphics[scale=0.2]{clusters.png}
+		\vspace{-0.5cm}
+		\scalebox{0.6}{
+		\input{images/clusters.pgf}
+	}
 	\end{figure}
 \end{frame}
 
