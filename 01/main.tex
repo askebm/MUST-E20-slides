@@ -27,6 +27,7 @@
 \usepackage{listings}
 \usepackage{amsmath}
 \usepackage{import}
+\usepackage{pgf}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 \usepackage{helvet}
@@ -227,16 +228,20 @@ University of Southern Denmark
 
 \begin{frame}[t]
     \frametitle{Model Check}
-
+		\vspace{-0.7cm}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{figure}[H]
-                \includegraphics[scale=0.2]{images/scatterplotCorr.png}
+							\scalebox{0.5}{
+							\input{images/scatter_matrix.pgf}
+						}
             \end{figure} 
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{figure}[H]
-                \includegraphics[scale=0.2]{images/qq.png}
+							\scalebox{0.5}{
+							\input{images/qq.pgf}
+						}
             \end{figure}    
         \end{column}
     \end{columns}
