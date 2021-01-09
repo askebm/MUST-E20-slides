@@ -95,9 +95,8 @@
 \begin{itemize}
     \item Motivation
 		\item Assumptions 
-		\item Misclassification
+		\item Definitions
 		\item Classification with LDA and QDA
-		\item Several populations
 \end{itemize}
 \end{frame}
 %%%%%%%%%%%%%%%
@@ -122,19 +121,8 @@
     \quad $d(X_0) = \begin{cases} d1, &X_0 \in R_1 \\ d2, &X_0 \in R_2 \end{cases}$ \\
 \end{frame}
 
-\begin{frame}{Misclassifications}{Two population Classification}
-    General Case:
+\begin{frame}{General Criteria}{Definitions}
     \begin{itemize}
-         \item Confusion Matrix
-                \begin{table}[h]
-        \begin{tabular}{@{}llllll@{}}
-        \toprule
-           Classify as $\rightarrow$   & $d_1$ & $d_2$ \\ \midrule
-        True $\pi_1$ & $P[d_1 | \pi_1]$ & $P[d_2 | \pi_1]$ \\
-        \downarrow $\pi_2$ & $P[d_1 | \pi_2]$ & $P[d_2 | \pi_2]$ \\ \midrule 
-        \end{tabular}
-        \end{table}
-        
         \item Cost Matrix: 
         \begin{table}[h]
         \begin{tabular}{@{}llll@{}}
@@ -212,7 +200,8 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Model Check}{Classification for 2 MVN populations}
+\begin{frame}{Performance}{Classification for 2 MVN populations}
+
         \begin{table}[h]
         \begin{tabular}{@{}llll@{}}
         \toprule
