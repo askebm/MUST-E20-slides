@@ -26,6 +26,7 @@
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{listings}
+\usepackage{subfig}
 % Or whatever. Note that the encoding and the font should match. If T1
 % does not look nice, try deleting the line with the fontenc.
 \usepackage{helvet}
@@ -36,7 +37,7 @@
 \newtheorem{proposition}{Proposition}
 % colored hyperlinks
 \newcommand{\chref}[2]{%
-  \href{#1}{{\usebeamercolor[bg]{SDUsimple}#2}}%
+	\href{#1}{{\usebeamercolor[bg]{SDUsimple}#2}}%
 }
 
 \title{Covariance Structure and Dimension Reduction PCA}
@@ -55,16 +56,16 @@
 
 \institute[
 %  {\includegraphics[scale=0.2]{SDU_segl}}\\ %insert a company, department or university logo
-  SDU Robotics\\
-  The Maersk Mc-Kinney Moller Institute\\
-  University of Southern Denmark
+SDU Robotics\\
+The Maersk Mc-Kinney Moller Institute\\
+University of Southern Denmark
 ] % optional - is placed in the bottom of the sidebar on every slide
 {% is placed on the bottom of the title page
-  SDU Robotics\\
-  The Maersk Mc-Kinney Moller Institute\\
-  University of Southern Denmark
+	SDU Robotics\\
+	The Maersk Mc-Kinney Moller Institute\\
+	University of Southern Denmark
 
-  %there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
+	%there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
 }
 
 % specify a logo on the titlepage (you can specify additional logos an include them in
@@ -72,109 +73,112 @@
 \pgfdeclareimage[height=0.5cm]{titlepagelogo}{SDUgraphics/SDU_logo_new} % placed on the title page
 %\pgfdeclareimage[height=1.5cm]{titlepagelogo2}{SDUgraphics/SDU_logo_new} % placed on the title page
 \titlegraphic{% is placed on the bottom of the title page
-  \pgfuseimage{titlepagelogo}
-%  \hspace{1cm}\pgfuseimage{titlepagelogo2}
+	\pgfuseimage{titlepagelogo}
+	%  \hspace{1cm}\pgfuseimage{titlepagelogo2}
 }
 
 \begin{document}
 % the titlepage
 {\SDUwavesbg%
-\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page
-  \titlepage
+	\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page
+		\titlepage
 \end{frame}}
 %%%%%%%%%%%%%%%%
 
 \begin{frame}[t]
-    \frametitle{Agenda}
-    \begin{itemize}
-        \item Motivation
-        \item Principal Components
-        \item Variance
-        \item Sample Based
-        \item Pitfalls
-    \end{itemize}
+	\frametitle{Agenda}
+	\begin{itemize}
+		\item Motivation
+		\item Principal Components
+		\item Variance
+		\item Sample Based
+		\item Pitfalls
+	\end{itemize}
 
 \end{frame}
 
 \begin{frame}[t]
 	\frametitle{Motivation}
 
-    \begin{itemize}
-        \item Dimension reduction
-        \item Decorrelate data
-    \end{itemize}
+	\begin{itemize}
+		\item Dimension reduction
+		\item Decorrelate data
+	\end{itemize}
 
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Principal Components}
-    
-    \begin{align*}
-			PC_i &\overset{def}{=} e_{i1} X_1 + \hdots + e_{ip} X_p = e_i^T X\\
-    \end{align*}
+	\frametitle{Principal Components}
 
-    \pause
+	\begin{align*}
+		PC_i &\overset{def}{=} e_{i1} X_1 + \hdots + e_{ip} X_p = e_i^T X\\
+	\end{align*}
 
-    \begin{itemize}
-        \item Maximize variance
-    \end{itemize}
+	\pause
+
+	\begin{itemize}
+		\item Maximize variance
+	\end{itemize}
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Variance Explained}
-    
-    \begin{align*}
-    \Sigma =  E\Lambda E^T
-    \end{align*}
+	\frametitle{Variance Explained}
 
-    \begin{align*}
-    PC_i: \frac{\lambda_i}{ \sum^{p}_{j=1} \lambda_j  }
-    \end{align*}
-    
-    
+	\begin{align*}
+		\Sigma =  E\Lambda E^T
+	\end{align*}
+
+	\begin{align*}
+		PC_i: \frac{\lambda_i}{ \sum^{p}_{j=1} \lambda_j  }
+	\end{align*}
+
+
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Visualization}
+	\frametitle{Visualization}
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.45\linewidth]{images/pca.png}
-    \end{figure}
+	\begin{figure}[H]
+		\centering
+		\scalebox{0.7}{
+			\input{images/scatter_eigen.pgf}
+		}
+	\end{figure}
 
 
-    
+
 \end{frame}
 \begin{frame}[t]
-    \frametitle{Visualization}
+	\frametitle{Visualization}
+	\begin{figure}[H]
+		\centering
+		\scalebox{0.7}{
+			\input{images/scatter_eigen_arrow.pgf}
+		}
+	\end{figure}
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.45\linewidth]{images/pcaArrow.png}
-    \end{figure}
-    
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Sample Based}
+	\frametitle{Sample Based}
 
-    \begin{align*}
-    X = \begin{bmatrix}
+	\begin{align*}
+		X = \begin{bmatrix}
 			X_{11} & \hdots & X_{1p} \\
-        \vdots &  \ddots & \vdots  \\
-				X_{n1} & \hdots & X_{np} \\
-    \end{bmatrix}
-    \end{align*}
+			\vdots &  \ddots & \vdots  \\
+			X_{n1} & \hdots & X_{np} \\
+		\end{bmatrix}
+	\end{align*}
 
-    \begin{align*}
-        \hat{\Sigma} = S = \frac{1}{n-1} \sum^{n}_{j=1} (X_j - \bar{X} )(X_j - \bar{X} )^T
-    \end{align*}
-   \begin{align*}
-    \frac{ \sum^{r}_{i=1} \hat{\lambda_i}  }{ \sum^{p}_{j=1} \hat{\lambda_j}  }
-   \end{align*}
-    
+	\begin{align*}
+		\hat{\Sigma} = S = \frac{1}{n-1} \sum^{n}_{j=1} (X_j - \bar{X} )(X_j - \bar{X} )^T
+	\end{align*}
+	\begin{align*}
+		\frac{ \sum^{r}_{i=1} \hat{\lambda_i}  }{ \sum^{p}_{j=1} \hat{\lambda_j}  }
+	\end{align*}
 
-    
+
+
 \end{frame}
 
 \begin{frame}[t]
@@ -183,45 +187,52 @@
 		\centering
 		\includegraphics[width=0.65\linewidth]{images/Pareto_chart_of_titanium_investment_casting_defects.svg.png}
 	\end{figure}
-	
+
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Pitfalls}
+	\frametitle{Pitfalls}
 
-    \begin{align*}
-    X = \begin{bmatrix}
+	\begin{align*}
+		X = \begin{bmatrix}
 			X_{11} & \hdots & X_{1p} \\
-        \vdots &  \ddots & \vdots  \\
-				X_{n1} & \hdots & X_{np} \\
-    \end{bmatrix}
-    \end{align*}
+			\vdots &  \ddots & \vdots  \\
+			X_{n1} & \hdots & X_{np} \\
+		\end{bmatrix}
+	\end{align*}
 
-    
+
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Pitfalls}
+	\frametitle{Pitfalls}
+	\vspace{-2.5cm}
+	\begin{figure}[h]
+		\subfloat{
+			\makebox[0.5\textwidth]{
+				\centering
+				\input{images/scatter_eigen_pitfall1.pgf}
+			}
+		}
+		\subfloat{
+			\makebox[0.5\textwidth]{
+				\centering
+				\input{images/scatter_eigen_pitfall2.pgf}
+			}
+		}
+	\end{figure}
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\linewidth]{images/compare.png}
-    \end{figure}
-    
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{Inference}
-    
-    \begin{align*}
-        \hat{\lambda_i} \sim N\left(\lambda_i,2\frac{\lambda_i^2}{n}\right) 
-    \end{align*}
-    \begin{align*}
-        \frac{ \hat{\lambda_i}  }{1+ \sqrt{ \frac{2}{n} } z_{\frac{\alpha }{2}}} < \lambda_i < \frac{ \hat{\lambda_i}  }{1- \sqrt{ \frac{2}{n} } z_{\frac{\alpha }{2}}}
-    \end{align*}
-    
-    
+	\frametitle{Inference}
 
+	\begin{align*}
+		\hat{\lambda_i} \sim N\left(\lambda_i,2\frac{\lambda_i^2}{n}\right) 
+	\end{align*}
+	\begin{align*}
+		\frac{ \hat{\lambda_i}  }{1+ \sqrt{ \frac{2}{n} } z_{\frac{\alpha }{2}}} < \lambda_i < \frac{ \hat{\lambda_i}  }{1- \sqrt{ \frac{2}{n} } z_{\frac{\alpha }{2}}}
+	\end{align*}
 \end{frame}
 
 \end{document}
