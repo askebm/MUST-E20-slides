@@ -209,20 +209,38 @@ University of Southern Denmark
 	\frametitle{Hypothesis Testing on $\mu$}
 	\begin{itemize}
 		\item Equal $\Sigma$\\
+            \begin{itemize}
+                \item Assumptions
+            \end{itemize}
 			\[
 				S_p = 
 				\frac{  \left( n_1 -1  \right) S_1 +  \left( n_2 -1  \right) S_2}
 				{ \left( n_1 -1  \right) +  \left( n_2 -1  \right) } 
 			\] 
-		\item Unequal $\Sigma$
+            \[
+	            T^{2} =
+                \left( (\bar{X_1} - \bar{X_2})- \delta  \right) ^{T}
+				\left( \frac{S_p}{n_1} + \frac{S_p}{n_2}  \right) ^{-1}
+                \left( (\bar{X_1} - \bar{X_2}) - \delta  \right) \sim \frac{p(n1+n2-2)}{n_1+n_2-p-1} F_{p,n_1+n_2-p-1}
+                \]
+        \item Unequal $\Sigma$
+            \begin{itemize}
+                \item Assumptions
+            \end{itemize}
+
 			\[
 				T^{2} =
-				\left( \bar{D} - \delta  \right) ^{T}
+				\left( (\bar{X_1} - \bar{X_2}) - \delta  \right) ^{T}
 				\left( \frac{S_1}{n_1} + \frac{S_2}{n_2}  \right) ^{-1}
-				\left( \bar{D} - \delta  \right)
+                \left( (\bar{X_1} - \bar{X_2}) - \delta  \right) \underset{aprox}{\sim} \chi^2_p
 			\] 
 	\end{itemize}
 \end{frame}
+
+
+
+
+
 \begin{frame}[t]
 	\frametitle{Confidence regions}
 	Confidence region for $\delta$
